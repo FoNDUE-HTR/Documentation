@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns="http://www.loc.gov/standards/alto/ns-v4#"
+      xsi:schemaLocation="http://www.loc.gov/standards/alto/ns-v4# https://gitlab.inria.fr/scripta/escriptorium/-/raw/develop/app/escriptorium/static/alto-4-1-baselines.xsd">
+  <Description>
+    <MeasurementUnit>pixel</MeasurementUnit>
+    <sourceImageInformation>
+      <fileName>Balzac1624_Lettres_btv1b86262420_corrected_0014.png</fileName>
+    </sourceImageInformation>
+  </Description>
+  
+  <Tags>
+    <OtherTag ID="BT1" LABEL="Title" DESCRIPTION="block type Title"/><OtherTag ID="BT2" LABEL="Main" DESCRIPTION="block type Main"/><OtherTag ID="BT93" LABEL="Damage" DESCRIPTION="block type Damage"/><OtherTag ID="BT94" LABEL="Decoration" DESCRIPTION="block type Decoration"/><OtherTag ID="BT95" LABEL="DropCapital" DESCRIPTION="block type DropCapital"/><OtherTag ID="BT96" LABEL="Figure" DESCRIPTION="block type Figure"/><OtherTag ID="BT98" LABEL="Margin" DESCRIPTION="block type Margin"/><OtherTag ID="BT99" LABEL="Numbering" DESCRIPTION="block type Numbering"/><OtherTag ID="BT100" LABEL="MusicNotation" DESCRIPTION="block type MusicNotation"/><OtherTag ID="BT101" LABEL="RunningTitle" DESCRIPTION="block type RunningTitle"/><OtherTag ID="BT102" LABEL="Seal" DESCRIPTION="block type Seal"/><OtherTag ID="BT103" LABEL="Signatures" DESCRIPTION="block type Signatures"/><OtherTag ID="BT104" LABEL="Stamp" DESCRIPTION="block type Stamp"/><OtherTag ID="BT105" LABEL="Table" DESCRIPTION="block type Table"/>
+    <OtherTag ID="LT47" LABEL="Default" DESCRIPTION="line type Default"/><OtherTag ID="LT48" LABEL="DropCapitalLine" DESCRIPTION="line type DropCapitalLine"/><OtherTag ID="LT49" LABEL="Interlinear" DESCRIPTION="line type Interlinear"/><OtherTag ID="LT50" LABEL="MusicLine" DESCRIPTION="line type MusicLine"/><OtherTag ID="LT51" LABEL="Rubric" DESCRIPTION="line type Rubric"/>
+  </Tags>
+  
+  <Layout>
+    <Page WIDTH="4267"
+          HEIGHT="6884"
+          PHYSICAL_IMG_NR="2"
+          ID="eSc_dummypage_">
+      <PrintSpace HPOS="0"
+                  VPOS="0"
+                  WIDTH="4267"
+                  HEIGHT="6884">
+        
+        <TextBlock HPOS="1041"
+                   VPOS="206"
+                   WIDTH="2874"
+                   HEIGHT="4464"
+                   ID="r_1_2"
+                   TAGREFS="BT2">
+          <Shape><Polygon POINTS="1041 206 3915 206 3915 4670 1041 4670"/></Shape>
+          
+          
+          <TextLine ID="tl_2"
+                    TAGREFS="LT47"
+                    BASELINE="1069 441 1290 432 1894 405 2594 437 2810 409 3154 407 3894 399" 
+                    HPOS="1069"
+                    VPOS="207"
+                    WIDTH="2825"
+                    HEIGHT="286">
+            <Shape><Polygon POINTS="1069 207 3894 207 3894 493 1069 493"/></Shape>
+	    <String CONTENT="en toutes choſes, &amp; qui n’exem¬"
+                    HPOS="1069"
+                    VPOS="207"
+                    WIDTH="2825"
+                    HEIGHT="286"></String>
+          </TextLine>
+
+          
+          
+          <TextLine ID="tl_3"
+                  TAGREFS="LT47"
+                    BASELINE="1071 773 1571 683 1899 673 2559 662 3275 674 3911 671" 
+                    HPOS="1070"
+                    VPOS="463"
+                    WIDTH="2842"
+                    HEIGHT="310">
+            <Shape><Polygon POINTS="1070 463 3912 463 3912 773 1070 773"/></Shape>
+	    <String CONTENT="ptent pas meſme Horace &amp; Vir¬"
+                    HPOS="1070"
+                    VPOS="463"
+                    WIDTH="2842"
+                    HEIGHT="310"></String>
+          </TextLine>
+
+          
+          
+          <TextLine ID="tl_4"
+                  TAGREFS="LT47"
+                    BASELINE="1076 1029 1408 944 1704 942 2200 931 3173 971 3424 937 3908 907" 
+                    HPOS="1076"
+                    VPOS="739"
+                    WIDTH="2833"
+                    HEIGHT="290">
+            <Shape><Polygon POINTS="1076 739 3909 739 3909 1029 1076 1029"/></Shape>
+	    <String CONTENT="gile de leurs Cenſures, ie t’ad¬"
+                    HPOS="1076"
+                    VPOS="739"
+                    WIDTH="2833"
+                    HEIGHT="290"></String>
+          </TextLine>
+
+          
+          
+          <TextLine ID="tl_5"
+                  TAGREFS="LT47"
+                    BASELINE="1077 1213 1566 1199 1678 1222 2462 1186 2562 1246 2818 1192 3074 1199 3202 1194 3914 1203" 
+                    HPOS="1077"
+                    VPOS="999"
+                    WIDTH="2837"
+                    HEIGHT="254">
+            <Shape><Polygon POINTS="1077 999 3914 999 3914 1253 1077 1253"/></Shape>
+	    <String CONTENT="uertis (Lecteur) de ne t&#39;arreſter"
+                    HPOS="1077"
+                    VPOS="999"
+                    WIDTH="2837"
+                    HEIGHT="254"></String>
+          </TextLine>
+
+          
+          
+          <TextLine ID="tl_6"
+                  TAGREFS="LT47"
+                    BASELINE="1071 1549 1359 1464 1495 1463 1887 1457 2751 1497 2943 1452 3167 1455 3899 1471" 
+                    HPOS="1070"
+                    VPOS="1247"
+                    WIDTH="2829"
+                    HEIGHT="302">
+            <Shape><Polygon POINTS="1070 1247 3899 1247 3899 1549 1070 1549"/></Shape>
+	    <String CONTENT="pas à leur opinion, ſi tu ne veux"
+                    HPOS="1070"
+                    VPOS="1247"
+                    WIDTH="2829"
+                    HEIGHT="302"></String>
+          </TextLine>
+
+          
+          
+          <TextLine ID="tl_7"
+                  TAGREFS="LT47"
+                    BASELINE="1068 1805 1616 1723 2364 1707 2644 1705 3565 1745 3880 1724" 
+                    HPOS="1067"
+                    VPOS="1515"
+                    WIDTH="2814"
+                    HEIGHT="290">
+            <Shape><Polygon POINTS="1067 1515 3881 1515 3881 1805 1067 1805"/></Shape>
+	    <String CONTENT="qu’on t&#39;accuſe de foibleſſe, &amp;"
+                    HPOS="1067"
+                    VPOS="1515"
+                    WIDTH="2814"
+                    HEIGHT="290"></String>
+          </TextLine>
+
+          
+          
+          <TextLine ID="tl_8"
+                  TAGREFS="LT47"
+                    BASELINE="1065 1993 1274 1988 1526 1975 2450 1970 2778 1973 3226 1974 3578 1985 3874 1947" 
+                    HPOS="1065"
+                    VPOS="1779"
+                    WIDTH="2809"
+                    HEIGHT="278">
+            <Shape><Polygon POINTS="1065 1779 3874 1779 3874 2057 1065 2057"/></Shape>
+	    <String CONTENT="de ne reprendre pas auec eux in¬"
+                    HPOS="1065"
+                    VPOS="1779"
+                    WIDTH="2809"
+                    HEIGHT="278"></String>
+          </TextLine>
+
+          
+          
+          <TextLine ID="tl_9"
+                  TAGREFS="LT47"
+                    BASELINE="1070 2253 1967 2237 2099 2268 2407 2227 2835 2228 3115 2235 3887 2215" 
+                    HPOS="1070"
+                    VPOS="2067"
+                    WIDTH="2817"
+                    HEIGHT="250">
+            <Shape><Polygon POINTS="1070 2067 3887 2067 3887 2317 1070 2317"/></Shape>
+	    <String CONTENT="continent, çe que tu trouue¬"
+                    HPOS="1070"
+                    VPOS="2067"
+                    WIDTH="2817"
+                    HEIGHT="250"></String>
+          </TextLine>
+
+          
+          
+          <TextLine ID="tl_10"
+                  TAGREFS="LT47"
+                    BASELINE="1064 2509 1308 2508 1548 2507 2128 2496 2380 2495 2576 2490 3212 2494 3492 2489 3880 2495" 
+                    HPOS="1063"
+                    VPOS="2299"
+                    WIDTH="2818"
+                    HEIGHT="270">
+            <Shape><Polygon POINTS="1063 2299 3881 2299 3881 2569 1063 2569"/></Shape>
+	    <String CONTENT="ras au deſſus de la portée de ton"
+                    HPOS="1063"
+                    VPOS="2299"
+                    WIDTH="2818"
+                    HEIGHT="270"></String>
+          </TextLine>
+
+          
+          
+          <TextLine ID="tl_11"
+                  TAGREFS="LT47"
+                    BASELINE="1065 2769 1606 2766 3886 2787" 
+                    HPOS="1065"
+                    VPOS="2551"
+                    WIDTH="2821"
+                    HEIGHT="294">
+            <Shape><Polygon POINTS="1065 2551 3886 2551 3886 2845 1065 2845"/></Shape>
+	    <String CONTENT="eſprit. Ce ſtile eſt ſi beau, ſi fort,"
+                    HPOS="1065"
+                    VPOS="2551"
+                    WIDTH="2821"
+                    HEIGHT="294"></String>
+          </TextLine>
+
+          
+          
+          <TextLine ID="tl_12"
+                  TAGREFS="LT47"
+                    BASELINE="1070 3033 1239 3033 1455 3027 1903 3053 2379 3011 3359 3010 3879 2991" 
+                    HPOS="1070"
+                    VPOS="2815"
+                    WIDTH="2809"
+                    HEIGHT="318">
+            <Shape><Polygon POINTS="1070 2815 3879 2815 3879 3133 1070 3133"/></Shape>
+	    <String CONTENT="&amp; ſi net, qu’il ſurpaſſe au iuge¬"
+                    HPOS="1070"
+                    VPOS="2815"
+                    WIDTH="2809"
+                    HEIGHT="318"></String>
+          </TextLine>
+
+          
+          
+          <TextLine ID="tl_13"
+                  TAGREFS="LT47"
+                    BASELINE="1064 3289 1532 3287 1908 3281 2528 3274 3176 3279 3296 3298 3872 3243" 
+                    HPOS="1063"
+                    VPOS="3079"
+                    WIDTH="2809"
+                    HEIGHT="230">
+            <Shape><Polygon POINTS="1063 3079 3872 3079 3872 3309 1063 3309"/></Shape>
+	    <String CONTENT="ment des mieux ſenſez, l’elo¬"
+                    HPOS="1063"
+                    VPOS="3079"
+                    WIDTH="2809"
+                    HEIGHT="230"></String>
+          </TextLine>
+
+          
+          
+          <TextLine ID="tl_14"
+                  TAGREFS="LT47"
+                    BASELINE="1057 3625 1734 3550 1985 3541 2405 3534 2657 3529 3326 3570 3870 3535" 
+                    HPOS="1057"
+                    VPOS="3335"
+                    WIDTH="2813"
+                    HEIGHT="290">
+            <Shape><Polygon POINTS="1057 3335 3870 3335 3870 3625 1057 3625"/></Shape>
+	    <String CONTENT="quence de tous les ſiecles, &amp; ſi"
+                    HPOS="1057"
+                    VPOS="3335"
+                    WIDTH="2813"
+                    HEIGHT="290"></String>
+          </TextLine>
+
+          
+          
+          <TextLine ID="tl_15"
+                  TAGREFS="LT47"
+                    BASELINE="1042 3805 1235 3813 2107 3796 2411 3863 3235 3790 3547 3793 3871 3751" 
+                    HPOS="1042"
+                    VPOS="3599"
+                    WIDTH="2829"
+                    HEIGHT="270">
+            <Shape><Polygon POINTS="1042 3599 3871 3599 3871 3869 1042 3869"/></Shape>
+	    <String CONTENT="tu t’efforces d&#39;y chercher des de¬"
+                    HPOS="1042"
+                    VPOS="3599"
+                    WIDTH="2829"
+                    HEIGHT="270"></String>
+          </TextLine>
+
+          
+          
+          <TextLine ID="tl_16"
+                  TAGREFS="LT47"
+                    BASELINE="1047 4073 1544 4099 1764 4070 2024 4060 2468 4054 2796 4052 3384 4046 3868 4051" 
+                    HPOS="1047"
+                    VPOS="3859"
+                    WIDTH="2821"
+                    HEIGHT="282">
+            <Shape><Polygon POINTS="1047 3859 3868 3859 3868 4141 1047 4141"/></Shape>
+	    <String CONTENT="fauts, tu ne ſeras pas quitte pour"
+                    HPOS="1047"
+                    VPOS="3859"
+                    WIDTH="2821"
+                    HEIGHT="282"></String>
+          </TextLine>
+
+          
+          
+          <TextLine ID="tl_17"
+                  TAGREFS="LT47"
+                    BASELINE="1053 4325 1445 4327 2061 4312 2802 4352 3109 4319 3489 4309 3869 4315" 
+                    HPOS="1052"
+                    VPOS="4119"
+                    WIDTH="2818"
+                    HEIGHT="286">
+            <Shape><Polygon POINTS="1052 4119 3870 4119 3870 4405 1052 4405"/></Shape>
+	    <String CONTENT="eſtre eſtimé delicat, on dira que"
+                    HPOS="1052"
+                    VPOS="4119"
+                    WIDTH="2818"
+                    HEIGHT="286"></String>
+          </TextLine>
+
+          
+          
+          <TextLine ID="tl_18"
+                  TAGREFS="LT47"
+                    BASELINE="1050 4589 1231 4593 1475 4587 2403 4574" 
+                    HPOS="1050"
+                    VPOS="4390"
+                    WIDTH="1353"
+                    HEIGHT="279">
+            <Shape><Polygon POINTS="1050 4390 2403 4390 2403 4669 1050 4669"/></Shape>
+	    <String CONTENT="tu es deſgouté."
+                    HPOS="1050"
+                    VPOS="4390"
+                    WIDTH="1353"
+                    HEIGHT="279"></String>
+          </TextLine>
+
+          
+        </TextBlock>
+        
+        <TextBlock HPOS="1930"
+                   VPOS="60"
+                   WIDTH="1145"
+                   HEIGHT="84"
+                   ID="eSc_textblock_a8916d5d"
+                   TAGREFS="BT101">
+          <Shape><Polygon POINTS="1930 144 1930 60 3069 60 3075 144"/></Shape>
+          
+          
+          
+          <TextLine ID="eSc_line_f3389102"
+                  TAGREFS="LT47"
+                    BASELINE="1950 157 3046 149" 
+                    HPOS="1946"
+                    VPOS="32"
+                    WIDTH="1119"
+                    HEIGHT="128">
+            <Shape><Polygon POINTS="1946 154 2001 54 2230 46 2684 32 2981 69 2998 110 2997 114 3065 152 1958 160"/></Shape>
+	    <String CONTENT="au Lecteur."
+                    HPOS="1946"
+                    VPOS="32"
+                    WIDTH="1119"
+                    HEIGHT="128"></String>
+          </TextLine>
+
+          
+        </TextBlock>
+        
+      </PrintSpace>
+    </Page>
+  </Layout>
+</alto>
