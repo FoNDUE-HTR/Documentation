@@ -9,7 +9,7 @@ module load GCCcore/10.2.0 Python/3.8.6
 source ~/kraken-env/bin/activate
 
 OUTPUT_NAME="output_name"
-XML_FOLDER="/home/gabays/data"
+XML_FOLDER="/home/users/g/gabays/Documentation/data"
 
 echo "KETOS training"
 srun ketos train -o $OUTPUT_NAME -f alto -d cuda "${XML_FOLDER}/*.xml"
