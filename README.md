@@ -62,6 +62,8 @@ fi
 export PATH="/home/users/g/PSEUDO/.local/bin:$PATH"
 ```
 
+**Do not forget to change the value of `PSEUDO`**
+
 To save `ctrl+x`, `ctrl+y` and `enter`.
 
 ## Modules
@@ -194,6 +196,15 @@ git clone https://github.com/FoNDUE-HTR/REPO.git
 cd REPO
 ```
 
+For instance:
+
+```bash
+git clone https://github.com/FoNDUE-HTR/Documentation
+cd Documentation
+```
+
+**This repo contains sample data that will be used later in this tutorial.**
+
 Load the required modules:
 ```bash
 module load GCCcore/10.2.0 Python/3.8.6
@@ -229,10 +240,22 @@ You need to activate the virtual environment each time you get allocated a GPU:
 source PATH/TO/VENV/bin/activate
 ```
 
+For instance:
+
+```bash
+source ~/kraken-env/bin/activate
+```
+
 You can now train a model for HTR:
 
 ```bash
 ketos train -f alto -d cuda PATH/TO/*xml
+```
+
+For instance:
+
+```bash
+ketos train -f alto -d cuda data/*xml
 ```
 
 - `-f` says which kind of data you have (possible options are `alto` or `page`).
@@ -251,7 +274,7 @@ More options are available (`kraken --help` or [here](https://github.com/mittage
 A enhanced training could there for be:
 
 ```bash
-ketos train -t train.txt -e val.txt -f alto -d cuda -r 0.0001 --lag 20 --normalization NFD PATH/TO/*xml
+ketos train -t split/train.txt -e split/eval.txt -f alto -d cuda -r 0.0001 --lag 20 --normalization NFD PATH/TO/*xml
 ```
 
 To train a model for segmentation, the command is:
@@ -260,7 +283,13 @@ To train a model for segmentation, the command is:
 ketos segtrain -f alto -d cuda PATH/TO/*xml
 ```
 
-It is possible to add the arguments prestend just above.
+For instance:
+
+```bash
+ketos segtrain -f alto -d cuda data/*xml
+```
+
+It is possible to add the arguments presented just above.
 
 ## Use a submission script
 
@@ -278,10 +307,10 @@ module load GCCcore/10.2.0 Python/3.8.6
 source ~/kraken-env/bin/activate
 
 OUTPUT_NAME="output_name"
-XML_FOLDER="/home/PSEUDO/kraken/DATASET"
+XML_FOLDER="/home/users/g/PSEUDO/Documentation/data"
 
 echo "KETOS training"
-srun ketos segtrain -o $OUTPUT_NAME -d cuda -f alto "${XML_FOLDER}/*.xml"
+srun ketos train -o $OUTPUT_NAME -f alto -d cuda "${XML_FOLDER}/*.xml"
 ```
 
 The script can be executed with:
@@ -292,5 +321,5 @@ bash NAME.sh
 
 for instance:
 ```bash
-bash submission-script.sh
+bash submission_scripts/submission-rec.sh
 ```
