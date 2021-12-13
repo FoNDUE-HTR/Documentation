@@ -209,7 +209,7 @@ cd Documentation
 
 Load the required modules:
 ```bash
-module load GCCcore/10.2.0 Python/3.8.6
+module load fosscuda/2020b Python/3.8.6
 ```
 
 You need now to ask for a GPU. If you want to test that everyhting is OK, you can first run a test with a `debug-gpu` with:
