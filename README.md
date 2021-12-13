@@ -26,7 +26,9 @@ or
 ssh PSEUDO@login1.yggdrasil.hpc.unige.ch
 ```
 
-At the UniGE, `PSEUDO` should be your surname followed by the first letter of your given name (_John Doe_ -> `doej`), so:
+Baobab and Yggdrasil are the two supercomputers of the university of Geneva. About their differences, and why use one rather than another, you will have all the details [here](https://doc.eresearch.unige.ch/hpc/hpc_clusters).
+
+At the UniGE, `PSEUDO` should be your surname, sometimes followed by the first letter of your given name (_John Doe_ -> `doe` or `doej`), so:
 
 ```bash
 ssh doej@login1.yggdrasil.hpc.unige.ch
