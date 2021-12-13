@@ -301,11 +301,11 @@ Rather than writing everything, you can use a submission script, gathering all t
 #!/bin/env bash
 #SBATCH --partition=shared-gpu
 #SBATCH --time=01:00:00
-#SBATCH --gpus=pascal:1
+#SBATCH --gpus=1
 #SBATCH --output=kraken-%j.out
 #SBATCH --mem=0
 
-module load GCCcore/10.2.0 Python/3.8.6
+module load fosscuda/2020b Python/3.8.6
 source ~/kraken-env/bin/activate
 
 OUTPUT_NAME="output_name"
@@ -318,10 +318,10 @@ srun ketos train -o $OUTPUT_NAME -f alto -d cuda "${XML_FOLDER}/*.xml"
 The script can be executed with:
 
 ```bash
-bash NAME.sh
+sbash NAME.sh
 ```
 
 for instance:
 ```bash
-bash submission_scripts/submission-rec.sh
+sbash submission_scripts/submission-rec.sh
 ```

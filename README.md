@@ -13,7 +13,7 @@ It uses [_eScriptorium_](https://gitlab.inria.fr/scripta/escriptorium), an open 
 
 This repo aims at helping local users of FoNDUE. They can find informations about HTR solutions in Geneva.
 
-1. A tutorial can be found here [in French](https://lectaurep.hypotheses.org/documentation/prendre-en-main-escriptorium) and here [in English](https://lectaurep.hypotheses.org/documentation/escriptorium-tutorial-en).
+1. A tutorial for _eScriptorium_ can be found here [in French](https://lectaurep.hypotheses.org/documentation/prendre-en-main-escriptorium) and here [in English](https://lectaurep.hypotheses.org/documentation/escriptorium-tutorial-en).
 
 2. Using the cluster is also possible to benefit from advanced paramaters. A tutorial can be found [here](https://github.com/FoNDUE-HTR/Documentation/blob/master/CLUSTERS.md).
 
