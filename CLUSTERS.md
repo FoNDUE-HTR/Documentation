@@ -321,7 +321,12 @@ The script can be executed with:
 sbatch NAME.sh
 ```
 
-for instance:
+for instance (to train an HTR model):
 ```bash
 sbatch submission_scripts/submission-rec.sh
+```
+
+or (to train a segmentation model):
+```bash
+sbatch submission_scripts/submission-seg.sh
 ```
