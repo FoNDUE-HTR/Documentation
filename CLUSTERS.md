@@ -330,3 +330,14 @@ or (to train a segmentation model):
 ```bash
 sbatch submission_scripts/submission-seg.sh
 ```
+
+You should be given the job id:
+```console
+Submitted batch job 0000000
+```
+You can check the state of the job with the following command:
+```bash
+squeue -j 0000000
+```
+
+`-j` being followed of the job ID.
