@@ -318,10 +318,10 @@ srun ketos train -o $OUTPUT_NAME -f alto -d cuda "${XML_FOLDER}/*.xml"
 The script can be executed with:
 
 ```bash
-sbash NAME.sh
+sbatch NAME.sh
 ```
 
 for instance:
 ```bash
-sbash submission_scripts/submission-rec.sh
+sbatch submission_scripts/submission-rec.sh
 ```
