@@ -18,3 +18,5 @@ This repo aims at helping local users of FoNDUE. They can find informations abou
 2. Using the cluster is also possible to benefit from advanced paramaters. A tutorial can be found [here](https://github.com/FoNDUE-HTR/Documentation/blob/master/CLUSTERS.md).
 
 3. To distribute data and models, we recommend to follow the instructions given by [HTR-united](https://github.com/HTR-United/). A tutorial can be found here [here](https://github.com/FoNDUE-HTR/Documentation/blob/master/DATA.md).
+
+4. A (very simple) tutorial for Kraken can be found [here](https://github.com/FoNDUE-HTR/Documentation/blob/master/KRAKEN.md).

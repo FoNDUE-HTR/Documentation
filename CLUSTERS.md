@@ -264,6 +264,8 @@ ketos train -f alto -d cuda data/*xml
 - `-d cuda` is required to use the GPU
 - `PATH/TO/*xml` is the path to the folder with all the xml files and the images.
 
+A (very simple) tutorial for Kraken can be found [here](https://github.com/FoNDUE-HTR/Documentation/blob/master/KRAKEN.md).
+
 To train a model for segmentation, the command is:
 
 ```bash
