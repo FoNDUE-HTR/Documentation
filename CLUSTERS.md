@@ -264,21 +264,6 @@ ketos train -f alto -d cuda data/*xml
 - `-d cuda` is required to use the GPU
 - `PATH/TO/*xml` is the path to the folder with all the xml files and the images.
 
-More options are available (`kraken --help` or [here](https://github.com/mittagessen/kraken/blob/master/docs/ketos.rst) for more informations):
-- `--normalization` to have an Unicode normalization (possible value is `NFD`).
-- `--threads` for the number of OpenMP threads (possible value is `20`).
-- `-t` + the path of a `.txt` file with a list of `.xml` files in the _train set_
-- `-e` + the path of a `.txt` file with a list of `.xml` files in the _evaluation set_
-- You can use early stopping with `-q early` (more informations [here](https://en.wikipedia.org/wiki/Early_stopping)).
-- `--lag` (only used when using early stopping) for the number of epochs to wait before stopping training without improvement (possible value is `20`).
-- `-r` for the learning rate (possible value is `0.0001`)
-
-A enhanced training could there for be:
-
-```bash
-ketos train -t split/train.txt -e split/eval.txt -f alto -d cuda -r 0.0001 --lag 20 --normalization NFD PATH/TO/*xml
-```
-
 To train a model for segmentation, the command is:
 
 ```bash
