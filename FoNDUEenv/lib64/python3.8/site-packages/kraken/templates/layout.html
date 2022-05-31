@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html {% if text_direction == "horizontal-rl" %}dir="rtl"{% endif %}>
+	
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta name="uuid" content="{{ uuid }}"/>
+		<meta itemprop="text_direction" content="{{ text_direction }}"/>
+		<style>
+			{% include 'style.css' %}
+		</style>
+		<script>
+			{% include 'main.js' %}
+		</script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<nav>
+				<ul>
+				{% for page in pages %}
+					<li><a class="page_anchor" href='#page_{{ page.index }}'>{{ page.index }}</a></li>
+				{% endfor %}
+				</ul>
+				<button class="download"><a href="#">Download</a></button>
+			</nav>
+
+			<div id="pages">
+				{% for page in pages %}
+				<section class="page" id="page_{{ page.index }}">
+					<div class="facsimile">
+						<img src="{{ page.img }}" alt="photo"/>
+						{% for line in page.lines %}
+							<a class="rect" alt="line_{{ line.index }}" href="" title="" style="left: {{ line.left }}%; top: {{ line.top }}%; width: {{ line.width }}%; height: {{ line.height }}%;"></a>
+						{% endfor %}
+					</div>
+					<ul>
+					{% for line in page.lines %}
+						<li id="line_{{ line.index }}" contenteditable="true" spellcheck="true" data-bbox="{{ line.bbox }}" data-placeholder="Enter text for line {{ line.index }}">
+							{% if line.text %}
+								{{ line.text }}
+							{% endif %}
+						</li>
+					{% endfor %}
+					</ul>
+				</section>
+				{% endfor %}
+			</div>
+		</div>
+	</body>
+</html>

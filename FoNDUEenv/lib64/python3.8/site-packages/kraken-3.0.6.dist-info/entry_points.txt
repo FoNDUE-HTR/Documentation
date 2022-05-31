@@ -1,0 +1,4 @@
+[console_scripts]
+ketos = kraken.ketos:cli
+kraken = kraken.kraken:cli
+
