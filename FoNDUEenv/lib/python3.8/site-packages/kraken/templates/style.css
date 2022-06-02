@@ -1,0 +1,132 @@
+body {
+	background: #f3f3f3;
+	height: 100vh;
+	margin: 0;
+}
+
+div, ul, li {
+	box-sizing: border-box;
+}
+
+#pages {
+	height: 100vh;
+	margin-left: 15%;
+	overflow: hidden;
+}
+
+section.page {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+/* Left column: facsimile */
+.facsimile {
+	align-self: center;
+	justify-self: center;
+	position: relative;
+	margin: 1em;
+}
+
+.facsimile > a {
+	position: absolute;
+	z-index: 2;
+}
+
+.facsimile > img {
+	width: 100%;
+}
+
+/* Line highlights on facsimile */
+a.rect:hover, a.hovered {
+	border: 2px solid rgba(255, 0, 0, .33);
+}
+
+a.active, li[contenteditable=true].active {
+	border: 2px solid red;
+}
+
+/* Right column: list of input fields */
+section.page > ul {
+	counter-reset: mycounter;
+	height: 100vh;
+	list-style-type: none;
+	margin: 0;
+	overflow: auto;
+	padding: 1em 1em 10vh 3em;
+	position: relative;
+}
+
+li[contenteditable=true] {
+	border: 2px dashed #CCC;
+	height: 1.8em;
+	margin: 0 0 1em 0;
+	outline: none;
+	padding: .2em;
+	width: 100%;
+}
+
+li[contenteditable=true]:before {
+	color: #BBB;
+	content: counter(mycounter);
+	counter-increment: mycounter;
+	font-family: monospace;
+	font-size: 1.2em;
+	left: 0;
+	position: absolute;
+	text-align: right;
+	width: 28px;
+}
+
+li[contenteditable=true].active:before {
+	color: #222;
+}
+
+li[contenteditable=true]:hover,
+li[contenteditable=true].hovered {
+	border: 2px solid rgba(255, 0, 0, .33);
+}
+
+li[contenteditable=true].corrected {
+	background-color: #a6e6a6;
+}
+
+/* Left aside navigation menu */
+nav {
+	background: #444;
+	font-family: sans-serif;
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 15%;
+}
+
+nav li {
+	display : inline-block;
+}
+
+nav a {
+	color: white;
+	text-decoration: none;
+}
+
+nav a:hover {
+	text-decoration: underline;	
+}
+
+button.download {
+	background: white;
+	border-radius: 0.3em;
+	border: 3px solid #CCC;
+	bottom: 50px;
+	cursor: pointer;
+	font-size: 1.1em;
+	margin-left: 2.5%;
+	position: fixed;
+	width: 10%;
+}
+
+button.download > a {
+	color: #222;
+}
+
