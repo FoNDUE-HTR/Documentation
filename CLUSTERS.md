@@ -215,7 +215,7 @@ module load fosscuda/2020b Python/3.8.6
 You need now to ask for a GPU. If you want to test that everyhting is OK, you can first run a test with a `debug-gpu` with:
 
 ```bash
-salloc --partition=debug-gpu --time=00:10:00 --gpus=1
+salloc --partition=debug-gpu --time=00:10:00 --gpus=1 --ntasks=4
 ```
 
 - `salloc` asks for a GPU
@@ -231,7 +231,7 @@ A description of all the partitions is available [online](https://doc.eresearch.
 To have a `shared-gpu` during one hour you should ask for:
 
 ```bash
-salloc --partition=shared-gpu --time=01:00:00 --gpus=1
+salloc --partition=shared-gpu --time=01:00:00 --gpus=1 --ntasks=4
 ```
 
 -> **Yes: you need to know in advance for how long you will need the GPU!**
