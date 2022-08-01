@@ -298,6 +298,7 @@ Rather than writing everything, you can use a submission script, gathering all t
 #SBATCH --gpus=1
 #SBATCH --output=kraken-%j.out
 #SBATCH --mem=0
+#SBATCH --ntasks=4
 
 module load fosscuda/2020b Python/3.8.6
 source ~/kraken-env/bin/activate
