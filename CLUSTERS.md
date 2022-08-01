@@ -258,13 +258,13 @@ source ~/kraken-env/bin/activate
 You can now train a model for HTR:
 
 ```bash
-ketos train -f alto -d cuda PATH/TO/*xml
+ketos train -f alto -d cuda:0 PATH/TO/*xml
 ```
 
 For instance:
 
 ```bash
-ketos train -f alto -d cuda data/*xml
+ketos train -f alto -d cuda:0 data/*xml
 ```
 
 - `-f` says which kind of data you have (possible options are `alto` or `page`).
