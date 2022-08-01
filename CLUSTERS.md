@@ -173,7 +173,13 @@ If you need to deactivate the virtual environment, you need to execute:
 deactivate
 ```
 
-Now you can install a Kraken via pip:
+Now you can install a Kraken via pip. First upload pip:
+
+```bash
+pip install pip-tools==6.6.2 pip==22.1.2
+```
+
+Now you can install kraken:
 
 ```bash
 pip install kraken
@@ -269,13 +275,13 @@ A (very simple) tutorial for Kraken can be found [here](https://github.com/FoNDU
 To train a model for segmentation, the command is:
 
 ```bash
-ketos segtrain -f alto -d cuda PATH/TO/*xml
+ketos segtrain -f alto -d cuda:0 PATH/TO/*xml
 ```
 
 For instance:
 
 ```bash
-ketos segtrain -f alto -d cuda data/*xml
+ketos segtrain -f alto -d cuda:0 data/*xml
 ```
 
 It is possible to add the arguments presented just above.
