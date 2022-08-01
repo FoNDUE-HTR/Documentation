@@ -182,7 +182,8 @@ pip install pip-tools==6.6.2 pip==22.1.2
 Now you can install kraken:
 
 ```bash
-pip install kraken
+wget https://raw.githubusercontent.com/FoNDUE-HTR/Documentation/master/requirements.txt
+pip install -r requirements.txt
 ```
 
 You can control that it is installed with:
