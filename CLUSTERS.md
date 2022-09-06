@@ -307,7 +307,7 @@ OUTPUT_NAME="output_name"
 XML_FOLDER="/home/users/g/PSEUDO/Documentation/data"
 
 echo "KETOS training"
-srun ketos train -o $OUTPUT_NAME -f alto -d cuda "${XML_FOLDER}/*.xml"
+srun ketos train -o $OUTPUT_NAME -f alto -d cuda:0 "${XML_FOLDER}/*.xml"
 ```
 
 The script can be executed with:
