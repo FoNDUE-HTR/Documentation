@@ -191,13 +191,13 @@ The `ketos segtrain` allows to train a segmentation model: it recognises various
 
 The commands are really similar to those of `ketos train`.
 
-## 5. `ketos segtrain`: the YALTAi alternative
+## 6. `ketos segtrain`: the _YALTAi_ alternative
 
 ```bash
 pip install YALTAi
 ```
 
-### 5.1 Convert the data
+### 6.1 Convert the data
 
 Convert (and split optionally) your data:
 
@@ -219,7 +219,7 @@ Possible values are :
 
 This step will create a `my-dataset/config.yml` file in the directory where the command is launched.
 
-### 5.2 Train the model
+### 6.2 Train the model
 
 You need to download YOLOv5
 
@@ -248,7 +248,7 @@ For instance:
 python train.py --data "../my-dataset/config.yml" --batch-size 4 --img 1280 --weights yolov5x6.pt --epochs 50 --workers 6
 ```
 
-### 5.3 Prediction
+### 6.3 Prediction
 
 You need first to check in the `yolov5` directory the name of the directory in which the weights are:
 
