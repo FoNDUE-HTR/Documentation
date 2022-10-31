@@ -217,7 +217,7 @@ python train.py --data "../my-dataset/config.yml" --batch-size 4 --img 1280 --we
 
 ### 5.3 Prediction
 
-You need first to check in the `yolov5` diretory the name of the directory in which the weights are:
+You need first to check in the `yolov5` directory the name of the directory in which the weights are:
 
 ```bash
 yolov5/runs/train
