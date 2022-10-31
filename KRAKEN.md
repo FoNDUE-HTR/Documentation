@@ -1,10 +1,10 @@
-# Kraken
+# _Kraken_
 
-You will find some basic instructions about Kraken command lines to use the cluster.
+You will find some basic instructions about _Kraken_ command lines to use the cluster.
 
 🚨 Before doing anything: do consider you are using free softwares. Citing them is important for developers.
 
-Kraken:
+_Kraken_:
 ```bibtex
 @inproceedings{Z9G2EX_2019,
 author = {Kiessling, Benjamin},
@@ -22,11 +22,11 @@ url = {https://doi.org/10.34894/Z9G2EX}
 
 The official repo is here: https://github.com/mittagessen/kraken
 
-YALTAi:
+_YALTAi_:
 
 ```bibtex
 @unpublished{clerice:hal-03723208,
-  TITLE = {{You Actually Look Twice At it (YALTAi): using an object detection approach instead of region segmentation within the Kraken engine}},
+  TITLE = {{You Actually Look Twice At it (YALTAi): using an object detection approach instead of region segmentation within the _Kraken_ engine}},
   AUTHOR = {Cl{\'e}rice, Thibault},
   URL = {https://hal-enc.archives-ouvertes.fr/hal-03723208},
   NOTE = {working paper or preprint},
@@ -37,7 +37,7 @@ YALTAi:
 
 The official repo is here: https://github.com/PonteIneptique/YALTAi
 
-## 1. Use Kraken
+## 1. Use _Kraken_
 
 To process a page, you will need to use
 
@@ -261,7 +261,7 @@ There might be different directoy named `exp1`, `exp2`, `exp3`… Depending on h
 ```bash
 # Retrieve the best.pt after the training
 # It should be in runs/train/exp[NUMBER]/weights/best.pt
-# And then annotate your new data with the same CLI API as Kraken !
+# And then annotate your new data with the same CLI API as _Kraken_ !
 yaltai kraken --device cuda:0 -I "*.jpg" --suffix ".xml" segment --yolo runs/train/ADAPT HERE/weights/best.pt
 ```
 
