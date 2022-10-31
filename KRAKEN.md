@@ -146,6 +146,8 @@ Now that you have a model, you can test it on the `test.txt` data if you have pr
 ketos test -f alto -m PATH/TO/MODEL.mlmodel -e test.txt>eval_model.txt
 ```
 
+(Do not forget to change the value of the `-f` flag if you have data in another format such as `PAGExml`.)
+
 This command will test the selected model and store the results of the test in a file called `eval_model.txt`.
 
 ## 5. `ketos segtrain`
