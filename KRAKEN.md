@@ -133,7 +133,7 @@ Using the cluster allows to used advanced options to increase the speed or the a
 - `--workers` for the number of OpenMP threads (possible value is `20`).
 - `--lag` (only used when using early stopping) for the number of epochs to wait before stopping training without improvement (possible value is `20`).
 - `-r` for the learning rate (possible value is `0.0001`)
-- `--augment` Enables data augmentation.
+- `--augment` enables data augmentation.
 
 
 ```bash
