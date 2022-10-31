@@ -88,7 +88,7 @@ ketos train -t split/train.txt -e split/eval.txt -f alto
 It is recommended to no apply an [Unicode normalization](https://en.wikipedia.org/wiki/Unicode_equivalence) (possible value is `NFD`), using the `--normalization`.
 
 ```bash
-ketos train -t split/train.txt -e split/eval.txt -f alto --normalization
+ketos train -t split/train.txt -e split/eval.txt -f alto --normalization NFD
 ```
 
 ### 3.3 Using the cluster
