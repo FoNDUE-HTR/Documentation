@@ -207,7 +207,7 @@ python train.py --data "../my-dataset/config.yml" --batch-size 4 --img 640 --wei
 
 Possible modifications are:
 - `--workers 6` (value may vary) to use many worker threads to train the model (to speed up training with multicore machines).
--- You can use large images with `--img 1280`. If you do, do use a P6 model configuration adapted for larger image size by using `--weights yolov5x6.pt`
+- You can use large images with `--img 1280`. If you do, do use a P6 model configuration adapted for larger image size by using `--weights yolov5x6.pt`
 
 For instance:
 
