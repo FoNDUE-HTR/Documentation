@@ -184,7 +184,7 @@ Possible values are :
 - `region` if you do not use subtypes
 - `subtype` if you use subtypes
 
-This step will create a `my-dataset/config.yml` file in the directory where the grountruth is.
+This step will create a `my-dataset/config.yml` file in the directory where the command is launched.
 
 ### 5.2 Train the model
 
