@@ -2,6 +2,41 @@
 
 You will find some basic instructions about Kraken command lines to use the cluster.
 
+🚨 Before doing anything: do consider you are using free softwares. Citing them is important for developers.
+
+Kraken:
+```bibtex
+@inproceedings{Z9G2EX_2019,
+author = {Kiessling, Benjamin},
+publisher = {DataverseNL},
+title = {{Kraken - a Universal Text Recognizer for the Humanities}},
+booktitle ={Digital Humanities Conference 2019},
+year = {2019},
+month = {Jul},
+address = {Utrecht, The Netherlands},
+version = {V2},
+doi = {10.34894/Z9G2EX},
+url = {https://doi.org/10.34894/Z9G2EX}
+}
+```
+
+The official repo is here: https://github.com/mittagessen/kraken
+
+YALTAi:
+
+```bibtex
+@unpublished{clerice:hal-03723208,
+  TITLE = {{You Actually Look Twice At it (YALTAi): using an object detection approach instead of region segmentation within the Kraken engine}},
+  AUTHOR = {Cl{\'e}rice, Thibault},
+  URL = {https://hal-enc.archives-ouvertes.fr/hal-03723208},
+  NOTE = {working paper or preprint},
+  YEAR = {2022},
+  MONTH = Jul,
+}
+```
+
+The official repo is here: https://github.com/PonteIneptique/YALTAi
+
 ## 1. Use Kraken
 
 To process a page, you will need to use
@@ -157,8 +192,6 @@ The `ketos segtrain` allows to train a segmentation model: it recognises various
 The commands are really similar to those of `ketos train`.
 
 ## 5. `ketos segtrain`: the YALTAi alternative
-
-More info on the official repo: https://github.com/PonteIneptique/YALTAi
 
 ```bash
 pip install YALTAi
