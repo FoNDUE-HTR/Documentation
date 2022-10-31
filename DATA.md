@@ -1,6 +1,12 @@
 # Distributing data and models
 
-We recommend to follow the instructions given by [HTR-united](https://github.com/HTR-United/).
+## 1. _SegmOnto_
+
+If you plan to prepare data for ayout analysis, do consider to us [the _SegmOnto_ controlled vocabulary](https://segmonto.github.io/).
+
+## 2. _HTR-united_
+
+To find or distribute data, we recommend to use the  [HTR-united](https://github.com/HTR-United/).
 
 1. The repositories can be hosted directly on HTR-united or self-hosted with the FoNDUE-HTR organisation. In the second case, please make sure to add a `htr-united.yml` file in the repo and to register your repo. More information [here](https://github.com/htr-united/htr-united).
 2. Actions (or continuous integration) are not mandatory but are recommended to ensure data consistency and quality. You can find more information about continuous integration [here (in French)](https://www.youtube.com/watch?v=Jk5aSIzIxXE).
