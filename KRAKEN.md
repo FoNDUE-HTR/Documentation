@@ -82,26 +82,27 @@ More options are available (`kraken --help` or [here](https://github.com/mittage
 You can now train a model using sets prepared in advance:
 
 ```bash
-ketos train -t split/train.txt -e split/eval.txt -f alto PATH/TO/*xml
+ketos train -t split/train.txt -e split/eval.txt -f alto
 ```
 
 It is recommended to no apply an [Unicode normalization](https://en.wikipedia.org/wiki/Unicode_equivalence) (possible value is `NFD`), using the `--normalization`.
 
 ```bash
-ketos train -t split/train.txt -e split/eval.txt -f alto --normalization NFD PATH/TO/*xml
+ketos train -t split/train.txt -e split/eval.txt -f alto --normalization
 ```
 
 ### 3.3 Using the cluster
 
 Using the cluster allows to used advanced options to increase the speed or the accuracy:
-- `-d cuda` is required to use the GPU
-- `--threads` for the number of OpenMP threads (possible value is `20`).
+- `-d cuda:0` is required to use the GPU
+- `--workers` for the number of OpenMP threads (possible value is `20`).
 - `--lag` (only used when using early stopping) for the number of epochs to wait before stopping training without improvement (possible value is `20`).
 - `-r` for the learning rate (possible value is `0.0001`)
+- `--augment` Enables data augmentation.
 
 
 ```bash
-ketos train -t split/train.txt -e split/eval.txt -f alto -d cuda -r 0.0001 --lag 20 --normalization NFD PATH/TO/*xml
+ketos train -t split/train.txt -e split/eval.txt -f alto -d cuda:0 -r 0.0001 --lag 10 --normalization
 ```
 
 ### 3.4 Fine tuning
@@ -112,7 +113,7 @@ It is possible to [fine tune](https://en.wikipedia.org/wiki/Fine-tuning) an exis
 ketos train -i PATH/TO/model.mlmodel PATH/TO/*.xml
 ```
 
-It is recommended, when fine tuning a model, to use the `--resize add` command in case some characters would not be present in the original training
+It is recommended, when fine tuning a model, to use the `--resize add` command in case some characters would not be present in the original training.
 
 ```bash
 ketos train -i PATH/TO/model.mlmodel --resize add PATH/TO/*.xml
@@ -142,7 +143,7 @@ MODEL_NAME_best.mlmodel
 Now that you have a model, you can test it on the `test.txt` data if you have prepared such a file with `ketos test`:
 
 ```bash
-ketos test -m PATH/TO/MODEL.mlmodel -e test.txt>eval_model.txt
+ketos test -f alto -m PATH/TO/MODEL.mlmodel -e test.txt>eval_model.txt
 ```
 
 This command will test the selected model and store the results of the test in a file called `eval_model.txt`.
@@ -153,6 +154,80 @@ The `ketos segtrain` allows to train a segmentation model: it recognises various
 
 The commands are really similar to those of `ketos train`.
 
+## 5. `ketos segtrain`: the YALTAi alternative
 
+More info on the official repo: https://github.com/PonteIneptique/YALTAi
 
+```bash
+pip install YALTAi
+```
 
+### 5.1 Convert the data
+
+Convert (and split optionally) your data:
+
+```bash
+# Keeps .1 data in the validation set and convert all alto into YOLOv5 format
+yaltai alto-to-yolo PATH/TO/ALTOorPAGE/*.xml my-dataset --shuffle .1
+```
+
+If the data uses the SegmOnto format you can use the `--segmonto` flag.
+
+```bash
+# Keeps .1 data in the validation set and convert all alto into YOLOv5 format
+yaltai alto-to-yolo PATH/TO/ALTOorPAGE/*.xml my-dataset --shuffle .1 --segmonto region
+```
+
+Possible values are :
+- `region` if you do not use subtypes
+- `subtype` if you use subtypes
+
+This step will create a `my-dataset/config.yml` file in the directory where the grountruth is.
+
+### 5.2 Train the model
+
+You need to download YOLOv5
+
+```bash
+# Download YOLOv5
+git clone https://github.com/ultralytics/yolov5  # clone
+cd yolov5
+git checkout v6.2
+pip install -r requirements.txt  # install
+```
+
+You can now train a model:
+
+```bash
+# Train your YOLOv5 data (YOLOv5 is installed with YALTAi)
+python train.py --data "../my-dataset/config.yml" --batch-size 4 --img 640 --weights yolov5x.pt --epochs 50
+```
+
+Possible modifications are:
+- `--workers 6` (value may vary) to use many worker threads to train the model (to speed up training with multicore machines).
+-- You can use large images with `--img 1280`. If you do, do use a P6 model configuration adapted for larger image size by using `--weights yolov5x6.pt`
+
+For instance:
+
+```bash
+python train.py --data "../my-dataset/config.yml" --batch-size 4 --img 1280 --weights yolov5x6.pt --epochs 50 --workers 6
+```
+
+### 5.3 Prediction
+
+You need first to check in the `yolov5` diretory the name of the directory in which the weights are:
+
+```bash
+yolov5/runs/train
+```
+
+There might be different directoy named `exp1`, `exp2`, `exp3`… Depending on how many models have been trained. Adapt accordingly the path below:
+
+```bash
+# Retrieve the best.pt after the training
+# It should be in runs/train/exp[NUMBER]/weights/best.pt
+# And then annotate your new data with the same CLI API as Kraken !
+yaltai kraken --device cuda:0 -I "*.jpg" --suffix ".xml" segment --yolo runs/train/ADAPT HERE/weights/best.pt
+```
+
+If you do not have a GPU, you can use a CPU with `--device`.
