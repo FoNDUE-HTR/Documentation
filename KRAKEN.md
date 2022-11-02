@@ -248,6 +248,8 @@ For instance:
 python train.py --data "../my-dataset/config.yml" --batch-size 4 --img 1280 --weights yolov5x6.pt --epochs 50 --workers 6
 ```
 
+⚠️ enlarging the size of the image (640->1280) requires much more memory, and you may have to reduce the size of the batch to 2.
+
 ### 6.3 Prediction
 
 You need first to check in the `yolov5` directory the name of the directory in which the weights are:
