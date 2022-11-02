@@ -267,4 +267,4 @@ There might be different directoy named `exp1`, `exp2`, `exp3`… Depending on h
 yaltai kraken --device cuda:0 -I "*.jpg" --suffix ".xml" segment --yolo runs/train/ADAPT HERE/weights/best.pt
 ```
 
-If you do not have a GPU, you can use a CPU with `--device cpu`.
+If you do not have a GPU, you can use a CPU with `--device cpu`. An optional `--deskew` optin is available to straighten skewed pages. 
