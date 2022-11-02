@@ -137,7 +137,7 @@ Using the cluster allows to used advanced options to increase the speed or the a
 
 
 ```bash
-ketos train -t split/train.txt -e split/eval.txt -f alto -d cuda:0 -r 0.0001 --lag 10 --normalization
+ketos train -t split/train.txt -e split/eval.txt -f alto -d cuda:0 -r 0.0001 --lag 10  --workers 8 --normalization NFD
 ```
 
 ### 3.4 Fine tuning
