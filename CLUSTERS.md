@@ -2,7 +2,7 @@
 
 FoNDUE is an HTR infrastructure for the university of Geneva. More information here: https://www.unige.ch/lettres/humanites-numeriques/fr/recherche/projets-de-la-chaire/fondue/
 
-## 1. Using the infrastrcture:
+## 1. Using the infrastructure:
 
 You can access our infrastructure at the following adress: https://test2.fondue.unige.ch/. You can find a tutorial in English [here](https://lectaurep.hypotheses.org/documentation/escriptorium-tutorial-en) and in French [here](https://lectaurep.hypotheses.org/documentation/prendre-en-main-escriptorium).
 
@@ -10,7 +10,7 @@ It uses [_eScriptorium_](https://gitlab.inria.fr/scripta/escriptorium), an open 
 
 Our instance uses the [Baobab and the Yggdrasil clusters](https://www.unige.ch/eresearch/en/services/hpc/) of the university of Geneva. To get an access, [follow the instructions](https://www.unige.ch/eresearch/en/services/hpc/guidelines/).
 
-## 2. Using the cluster with command lines
+## 2. Prepare your user account
 
 Our cluster uses [slurm](https://en.wikipedia.org/wiki/Slurm_Workload_Manager) for managing the jobs. You fill find documentation for the Geneva cluster [here](https://doc.eresearch.unige.ch/hpc/slurm#).
 
@@ -74,7 +74,7 @@ export PATH="/home/users/g/PSEUDO/.local/bin:$PATH"
 
 To save `ctrl+x`, `ctrl+y` and `enter`.
 
-### 2.1 Modules
+### 2.1 Loading modules
 
 Your environment is empty: for instance, there is not python. You need to load a specific python module to use python. If you already know which one you need, you can load it like this:
 
@@ -136,7 +136,7 @@ To start anew (and avoid conflicts, etc), it is recommended to purge all modules
 module purge
 ```
 
-### 2.2 Install _Kraken_
+### 2.2 Installing _Kraken_
 
 We can now install _Kraken_. To begin with, let's load all the required modules:
 
@@ -198,7 +198,9 @@ You can control that it is installed with:
 kraken --version
 ```
 
-### 2.2 Train a model
+## 3. How to train a model?
+
+### 3.1 Asking for a GPU
 
 - Don't forget to activate the virtual environment
 - Check if kraken is installed: `kraken --version`
@@ -266,19 +268,15 @@ Several paramters can be added:
 salloc --partition=shared-gpu --time=01:00:00 --gpus=1 --mem=12GB --cpus-per-task=8 --gres=gpu:1,VramPerGpu:12GB
 ```
 
-You have to load the requires modules each time you get allocated a GPU. For _Kraken_ users:
+### 3.2 With commmand lines
+
+⚠️ You have to load the requires modules each time you get allocated a GPU. For _Kraken_ users:
 
 ```bash
 module load fosscuda/2020b Python/3.8.6
 ```
 
 and then activate your virtual environement:
-
-```bash
-source PATH/TO/VENV/bin/activate
-```
-
-For instance:
 
 ```bash
 source ~/kraken-env/bin/activate
@@ -316,7 +314,7 @@ ketos segtrain -f alto -d cuda:0 data/*xml
 
 It is possible to add the arguments presented just above.
 
-### 2.4 Using a submission script
+### 3.3 Using a submission script
 
 Rather than writing everything, you can use a submission script, gathering all the informations in a bash file:
 
