@@ -130,9 +130,9 @@ To start anew (and avoid conflicts, etc), it is recommended to purge all modules
 module purge
 ```
 
-### Install Kraken
+### Install _Kraken_
 
-We can now install Kraken. To begin with, let's load all the required modules:
+We can now install _Kraken_. To begin with, let's load all the required modules:
 
 ```bash
 module load fosscuda/2020b Python/3.8.6
@@ -173,13 +173,13 @@ If you need to deactivate the virtual environment, you need to execute:
 deactivate
 ```
 
-Now you can install a Kraken via pip. First upload pip:
+Now you can install a _Kraken_ via pip. First upload pip:
 
 ```bash
 pip install pip-tools==6.6.2 pip==22.1.2
 ```
 
-Now you can install kraken:
+Now you can install _Kraken_. We highly recommend to use a `requirements` list that we have prepared:
 
 ```bash
 wget https://raw.githubusercontent.com/FoNDUE-HTR/Documentation/master/requirements.txt
@@ -214,21 +214,20 @@ cd Documentation
 
 **This repo contains sample data that will be used later in this tutorial.**
 
-Load the required modules:
-```bash
-module load fosscuda/2020b Python/3.8.6
-```
-
 You need now to ask for a GPU. If you want to test that everyhting is OK, you can first run a test with a `debug-gpu` with:
 
 ```bash
-salloc --partition=debug-gpu --time=00:10:00 --gpus=1 --ntasks=4
+salloc --partition=debug-gpu --time=00:10:00 --gpus=1
 ```
 
 - `salloc` asks for a GPU
 - `--partition` says which kind of GPU you need.
 - `--time` says for how long you want it
-- `--gpus` says how many GPUs you need.
+- `--gpus` says how many GPUs you need
+- `--ntasks` allows to run parallel distributed jobs, and specifies the number of processes (or tasks) that run simultaneously
+- `--cpus-per-task` sets the number of CPU per task, it should be equal to the amount of threads.
+- `--mem` sets the minimum amount of CPU RAM (not the GPU!)
+- `--gres` allows you to select a GPU with a minimum quantity of RAM
 
 A description of all the partitions is available [online](https://doc.eresearch.unige.ch/hpc/slurm), with the maximum time for each of them.
 - `debug-gpu` is available for 15mn max
@@ -238,12 +237,34 @@ A description of all the partitions is available [online](https://doc.eresearch.
 To have a `shared-gpu` during one hour you should ask for:
 
 ```bash
-salloc --partition=shared-gpu --time=01:00:00 --gpus=1 --ntasks=4
+salloc --partition=shared-gpu --time=01:00:00 --gpus=1
+```
+
+For a very big dataset:
+
+```bash
+salloc --partition=public-gpu --time=40:00:00 --gpus=1
 ```
 
 -> **Yes: you need to know in advance for how long you will need the GPU!**
 
-You need to activate the virtual environment each time you get allocated a GPU:
+⚠️ Some tools need to process data, and several processes dedicated to loading data are created You need to increase the value of `--ntasks` to have them run properly.
+
+⚠️ _Kraken_ (like many computer vision tools) requires more memory than the one allocated with `--ntasks=1`. Rather than increasing the amount of tasks (e.g. `--tasks=4`), we recommend to increase the RAM on the CPU with `--mem` (e.g. `--mem=12GB`). When doing that, make sure the memory allocated to the GPU (e.g. `--gres=gpu:1,VramPerGpu:12GB` for 12 GB) is at least equal to the value of `--mem`.
+
+⚠️ Processing important amount of data requires much more memory, especially if you increase the batch size. If you get a `RuntimeError: DataLoader worker (pid XXXXXX) is killed by signal: Killed.`, it is because your GPU does not have enough RAM: consider increasing it with `salloc` (e.g. `--gres=gpu:1,VramPerGpu:24GB` for 24 GB).
+
+```bash
+salloc --partition=shared-gpu --time=01:00:00 --gpus=1 --mem=12GB --gres=gpu:1,VramPerGpu:12GB
+```
+
+You have to load the requires modules each time you get allocated a GPU. For _Kraken_ users:
+
+```bash
+module load fosscuda/2020b Python/3.8.6
+```
+
+and then activate your virtual environement:
 
 ```bash
 source PATH/TO/VENV/bin/activate

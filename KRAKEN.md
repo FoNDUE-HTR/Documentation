@@ -130,15 +130,19 @@ ketos train -t split/train.txt -e split/eval.txt -f alto --normalization NFD
 
 Using the cluster allows to used advanced options to increase the speed or the accuracy:
 - `-d cuda:0` is required to use the GPU
-- `--workers` for the number of OpenMP threads (possible value is `20`).
+- `--workers` for the number of OpenMP threads (possible value is `8`).
 - `--lag` (only used when using early stopping) for the number of epochs to wait before stopping training without improvement (possible value is `20`).
-- `-r` for the learning rate (possible value is `0.0001`)
+- `-r` for the learning rate (possible value is `0.0001`): it determines the step size at each iteration while moving toward a minimum of a loss function.
 - `--augment` enables data augmentation.
-
 
 ```bash
 ketos train -t split/train.txt -e split/eval.txt -f alto -d cuda:0 -r 0.0001 --lag 10  --workers 8 --normalization NFD
 ```
+
+⚠️ The number of threads should be equal to the amount CPUs allocated per task. In other words `--workers 8` = `--cpus-per-task=8` 
+
+⚠️ Processing important amount of data requires much more memory, especially if you increase the batch size. If you get a `RuntimeError: DataLoader worker (pid XXXXXX) is killed by signal: Killed.`, it is because your GPU does not have enough RAM: consider increasing with `salloc` (e.g. `--gres=gpu:1,VramPerGpu:24G` for 24 GB).
+
 
 ### 3.4 Fine tuning
 
