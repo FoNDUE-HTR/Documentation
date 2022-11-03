@@ -27,7 +27,7 @@ simon\[DOT\]gabay\[AT\]unige.ch.
 
 ## Cite
 
-Simon Gabay, Pierre Kuenzli, Jean-Luc Flacone, Christophe Chariplloz, _FoNDUE: Documentation_, University of Geneva, 2022, https://github.com/fonDUE-HTR/Documentation.
+Simon Gabay, Pierre Kuenzli, Jean-Luc Flacone, Christophe Charpilloz, _FoNDUE: Documentation_, University of Geneva, 2022, https://github.com/fonDUE-HTR/Documentation.
 
 ---
 ## Licence
