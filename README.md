@@ -20,3 +20,12 @@ This repo aims at helping local users of FoNDUE. They can find informations abou
 3. To distribute data and models, we recommend to follow the instructions given by [HTR-united](https://github.com/HTR-United/). A tutorial can be found here [here](https://github.com/FoNDUE-HTR/Documentation/blob/master/DATA.md).
 
 4. A (very simple) tutorial for Kraken can be found [here](https://github.com/FoNDUE-HTR/Documentation/blob/master/KRAKEN.md).
+
+## Cite
+
+Simon Gabay, Pierre Kuenzli, Jean-Luc Flacone, Christophe Chariplloz, _FoNDUE: Documentation_, University of Geneva, 2022, https://github.com/fonDUE-HTR/Documentation.
+
+---
+## Licence
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International Licence</a>.

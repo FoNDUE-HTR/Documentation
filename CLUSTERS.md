@@ -12,7 +12,9 @@ Our instance uses the [Baobab and the Yggdrasil clusters](https://www.unige.ch/e
 
 ## Using the cluster with command lines
 
-Our cluster uses [slurm](https://en.wikipedia.org/wiki/Slurm_Workload_Manager) for managing the jobs. The DH unit does not own a node yet, so completion of tasks might be slow.
+Our cluster uses [slurm](https://en.wikipedia.org/wiki/Slurm_Workload_Manager) for managing the jobs. You fill find documentation for the Geneva cluster [here](https://doc.eresearch.unige.ch/hpc/slurm#).
+
+⚠️ The DH unit does not own a node yet, so completion of tasks might be slow.
 
 To access the cluster:
 
@@ -27,6 +29,8 @@ ssh PSEUDO@login1.yggdrasil.hpc.unige.ch
 ```
 
 Baobab and Yggdrasil are the two supercomputers of the university of Geneva. About their differences, and why use one rather than another, you will have all the details [here](https://doc.eresearch.unige.ch/hpc/hpc_clusters).
+
+⚠️ We recommend using _Yggdrasil_.
 
 At the UniGE, `PSEUDO` should be your surname, sometimes followed by the first letter of your given name (_John Doe_ -> `doe` or `doej`), so:
 
@@ -220,15 +224,6 @@ You need now to ask for a GPU. If you want to test that everyhting is OK, you ca
 salloc --partition=debug-gpu --time=00:10:00 --gpus=1
 ```
 
-- `salloc` asks for a GPU
-- `--partition` says which kind of GPU you need.
-- `--time` says for how long you want it
-- `--gpus` says how many GPUs you need
-- `--ntasks` allows to run parallel distributed jobs, and specifies the number of processes (or tasks) that run simultaneously
-- `--cpus-per-task` sets the number of CPU per task, it should be equal to the amount of threads.
-- `--mem` sets the minimum amount of CPU RAM (not the GPU!)
-- `--gres` allows you to select a GPU with a minimum quantity of RAM
-
 A description of all the partitions is available [online](https://doc.eresearch.unige.ch/hpc/slurm), with the maximum time for each of them.
 - `debug-gpu` is available for 15mn max
 - `shared-gpu` is available for 12h max
@@ -248,6 +243,17 @@ salloc --partition=public-gpu --time=40:00:00 --gpus=1
 
 -> **Yes: you need to know in advance for how long you will need the GPU!**
 
+Several paramters can be added:
+
+- `salloc` asks for a GPU
+- `--partition` says which kind of GPU you need.
+- `--time` says for how long you want it
+- `--gpus` says how many GPUs you need. You can specify the model such as `--gpus=titan:1`
+- `--ntasks` allows to run parallel distributed jobs, and specifies the number of processes (or tasks) that run simultaneously
+- `--cpus-per-task` sets the number of CPU per task, it should be equal to the amount of threads.
+- `--mem` sets the minimum amount of CPU RAM (not the GPU!)
+- `--gres` allows you to select a GPU with a minimum quantity of RAM
+
 ⚠️ Some tools need to process data, and several processes dedicated to loading data are created You need to increase the value of `--ntasks` to have them run properly.
 
 ⚠️ _Kraken_ (like many computer vision tools) requires more memory than the one allocated with `--ntasks=1`. Rather than increasing the amount of tasks (e.g. `--tasks=4`), we recommend to increase the RAM on the CPU with `--mem` (e.g. `--mem=12GB`). When doing that, make sure the memory allocated to the GPU (e.g. `--gres=gpu:1,VramPerGpu:12GB` for 12 GB) is at least equal to the value of `--mem`.
@@ -255,7 +261,7 @@ salloc --partition=public-gpu --time=40:00:00 --gpus=1
 ⚠️ Processing important amount of data requires much more memory, especially if you increase the batch size. If you get a `RuntimeError: DataLoader worker (pid XXXXXX) is killed by signal: Killed.`, it is because your GPU does not have enough RAM: consider increasing it with `salloc` (e.g. `--gres=gpu:1,VramPerGpu:24GB` for 24 GB).
 
 ```bash
-salloc --partition=shared-gpu --time=01:00:00 --gpus=1 --mem=12GB --gres=gpu:1,VramPerGpu:12GB
+salloc --partition=shared-gpu --time=01:00:00 --gpus=1 --mem=12GB --cpus-per-task=8 --gres=gpu:1,VramPerGpu:12GB
 ```
 
 You have to load the requires modules each time you get allocated a GPU. For _Kraken_ users:
@@ -318,8 +324,9 @@ Rather than writing everything, you can use a submission script, gathering all t
 #SBATCH --time=01:00:00
 #SBATCH --gpus=1
 #SBATCH --output=kraken-%j.out
-#SBATCH --mem=0
-#SBATCH --ntasks=4
+#SBATCH --mem=10000
+#SBATCH --ntasks=2
+#SBATCH --gres=gpu:1,VramPerGpu:10000
 
 module load fosscuda/2020b Python/3.8.6
 source ~/kraken-env/bin/activate
