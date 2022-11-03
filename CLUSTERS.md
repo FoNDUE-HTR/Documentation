@@ -68,6 +68,8 @@ fi
 export PATH="/home/users/g/PSEUDO/.local/bin:$PATH"
 ```
 
+⚠️ Replace `PSEUDO` by _your own_ pseudo.
+
 **Do not forget to change the value of `PSEUDO`**
 
 To save `ctrl+x`, `ctrl+y` and `enter`.
