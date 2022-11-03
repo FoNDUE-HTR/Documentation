@@ -23,6 +23,10 @@ This repo aims at helping local users of FoNDUE. They can find informations abou
 
 ## Cite
 
+simon\[DOT\]gabay\[AT\]unige.ch.
+
+## Cite
+
 Simon Gabay, Pierre Kuenzli, Jean-Luc Flacone, Christophe Chariplloz, _FoNDUE: Documentation_, University of Geneva, 2022, https://github.com/fonDUE-HTR/Documentation.
 
 ---
