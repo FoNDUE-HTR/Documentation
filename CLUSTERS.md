@@ -2,7 +2,7 @@
 
 FoNDUE is an HTR infrastructure for the university of Geneva. More information here: https://www.unige.ch/lettres/humanites-numeriques/fr/recherche/projets-de-la-chaire/fondue/
 
-## Using the infrastrcture:
+## 1. Using the infrastrcture:
 
 You can access our infrastructure at the following adress: https://test2.fondue.unige.ch/. You can find a tutorial in English [here](https://lectaurep.hypotheses.org/documentation/escriptorium-tutorial-en) and in French [here](https://lectaurep.hypotheses.org/documentation/prendre-en-main-escriptorium).
 
@@ -10,7 +10,7 @@ It uses [_eScriptorium_](https://gitlab.inria.fr/scripta/escriptorium), an open 
 
 Our instance uses the [Baobab and the Yggdrasil clusters](https://www.unige.ch/eresearch/en/services/hpc/) of the university of Geneva. To get an access, [follow the instructions](https://www.unige.ch/eresearch/en/services/hpc/guidelines/).
 
-## Using the cluster with command lines
+## 2. Using the cluster with command lines
 
 Our cluster uses [slurm](https://en.wikipedia.org/wiki/Slurm_Workload_Manager) for managing the jobs. You fill find documentation for the Geneva cluster [here](https://doc.eresearch.unige.ch/hpc/slurm#).
 
@@ -74,7 +74,7 @@ export PATH="/home/users/g/PSEUDO/.local/bin:$PATH"
 
 To save `ctrl+x`, `ctrl+y` and `enter`.
 
-### Modules
+### 2.1 Modules
 
 Your environment is empty: for instance, there is not python. You need to load a specific python module to use python. If you already know which one you need, you can load it like this:
 
@@ -136,7 +136,7 @@ To start anew (and avoid conflicts, etc), it is recommended to purge all modules
 module purge
 ```
 
-### Install _Kraken_
+### 2.2 Install _Kraken_
 
 We can now install _Kraken_. To begin with, let's load all the required modules:
 
@@ -198,7 +198,7 @@ You can control that it is installed with:
 kraken --version
 ```
 
-### Train a model
+### 2.2 Train a model
 
 - Don't forget to activate the virtual environment
 - Check if kraken is installed: `kraken --version`
@@ -316,7 +316,7 @@ ketos segtrain -f alto -d cuda:0 data/*xml
 
 It is possible to add the arguments presented just above.
 
-### Using a submission script
+### 2.4 Using a submission script
 
 Rather than writing everything, you can use a submission script, gathering all the informations in a bash file:
 
