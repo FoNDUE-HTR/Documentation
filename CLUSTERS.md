@@ -1,6 +1,6 @@
 # Using the clusters
 
-FoNDUE is an HTR infrastructure for the university of Geneva. More information here: https://www.unige.ch/lettres/humanites-numeriques/fr/recherche/projets-de-la-chaire/fondue/
+FoNDUE is an HTR infrastructure for the university of Geneva. More information here: https://www.unige.ch/lettres/humanites-numeriques/recherche/projets-de-la-chaire/fondue
 
 ## 1. Using the infrastructure:
 
