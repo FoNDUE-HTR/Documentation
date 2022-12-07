@@ -60,6 +60,13 @@ An example of command would be
 kraken -i OCR17plus/Data/Balzac1624_Lettres_btv1b86262420_corrected/png/Balzac1624_Lettres_btv1b86262420_corrected_0042.png results.txt segment -bl -i OCR17plus/Model/Segment/appenzeller.mlmodel ocr -m OCR17plus/Model/HTR/dentduchat.mlmodel
 ```
 
+To process multiple pages, you will need:
+
+```bash
+kraken -I 'images/*png' -o out.txt segment -bl -i segment.mlmodel ocr -m recognize.mlmodel
+```
+
+
 ## 2. Prepare the data
 
 Machine learning requires to split your data between ([more information here](https://en.wikipedia.org/wiki/Training,_validation,_and_test_sets)).
