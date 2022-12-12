@@ -159,10 +159,10 @@ It is possible to [fine tune](https://en.wikipedia.org/wiki/Fine-tuning) an exis
 ketos train -i PATH/TO/model.mlmodel PATH/TO/*.xml
 ```
 
-It is recommended, when fine tuning a model, to use the `--resize add` command in case some characters would not be present in the original training.
+It is recommended, when fine tuning a model, to use the `--resize add` command in case some characters would not be present in the original training. Do not forget to specify the format
 
 ```bash
-ketos train -i PATH/TO/model.mlmodel --resize add PATH/TO/*.xml
+ketos train -f alto -i PATH/TO/model.mlmodel --resize add PATH/TO/*.xml
 ```
 
 ### 3.5 Reading results
