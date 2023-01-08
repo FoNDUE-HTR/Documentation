@@ -21,7 +21,7 @@ This repo aims at helping local users of FoNDUE. They can find informations abou
 
 4. A (very simple) tutorial for Kraken can be found [here](https://github.com/FoNDUE-HTR/Documentation/blob/master/KRAKEN.md).
 
-## Cite
+## Email
 
 simon\[DOT\]gabay\[AT\]unige.ch.
 
