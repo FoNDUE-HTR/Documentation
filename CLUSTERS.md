@@ -173,12 +173,6 @@ source ~/kraken-env/bin/activate
 
 `(kraken-env)` (or the name of your VENV) should appear at the beginning of the line.
 
-If you need to deactivate the virtual environment, you need to execute:
-
-```bash
-deactivate
-```
-
 Now you can install a _Kraken_ via pip. First upload pip:
 
 ```bash
@@ -196,6 +190,12 @@ You can control that it is installed with:
 
 ```bash
 kraken --version
+```
+
+If you need to deactivate the virtual environment, you need to execute:
+
+```bash
+deactivate
 ```
 
 ## 3. How to train a model?
