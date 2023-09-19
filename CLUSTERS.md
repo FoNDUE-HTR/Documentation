@@ -79,7 +79,7 @@ To save `ctrl+x`, `ctrl+y` and `enter`.
 Your environment is empty: for instance, there is not python. You need to load a specific python module to use python. If you already know which one you need, you can load it like this:
 
 ```bash
-module Python/3.8.6
+module load Python/3.8.6
 ```
 
 You can control that the modules is loaded with:
