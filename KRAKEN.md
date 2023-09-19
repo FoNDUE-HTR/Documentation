@@ -127,7 +127,7 @@ You can now train a model using sets prepared in advance:
 ketos train -t split/train.txt -e split/eval.txt -f alto
 ```
 
-It is recommended to no apply an [Unicode normalization](https://en.wikipedia.org/wiki/Unicode_equivalence) (possible value is `NFD`), using the `--normalization`.
+It is recommended to apply an [Unicode normalization](https://en.wikipedia.org/wiki/Unicode_equivalence) (possible value is `NFD`), using the `--normalization`.
 
 ```bash
 ketos train -t split/train.txt -e split/eval.txt -f alto --normalization NFD
