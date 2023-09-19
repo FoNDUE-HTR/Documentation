@@ -68,7 +68,7 @@ fi
 export PATH="/home/users/g/PSEUDO/.local/bin:$PATH"
 ```
 
-⚠️ Replace `PSEUDO` by _your own_ pseudo.
+⚠️ Replace `PSEUDO` by _your own_ pseudo AND the letter in `/home/users/g` with the first letter of your pseudo (`gabays`->`g`, `doej`->`d`)
 
 **Do not forget to change the value of `PSEUDO`**
 
@@ -258,7 +258,7 @@ Several paramters can be added:
 - `--mem` sets the minimum amount of CPU RAM (not the GPU!)
 - `--gres` allows you to select a GPU with a minimum quantity of RAM
 
-⚠️ Some tools need to process data, and several processes dedicated to loading data are created You need to increase the value of `--ntasks` to have them run properly.
+⚠️ Some tools need to process data, and several processes dedicated to loading data are created. You need to increase the value of `--ntasks` to have them run properly.
 
 ⚠️ _Kraken_ (like many computer vision tools) requires more memory than the one allocated with `--ntasks=1`. Rather than increasing the amount of tasks (e.g. `--tasks=4`), we recommend to increase the RAM on the CPU with `--mem` (e.g. `--mem=12GB`). When doing that, make sure the memory allocated to the GPU (e.g. `--gres=gpu:1,VramPerGpu:12GB` for 12 GB) is at least equal to the value of `--mem`.
 
