@@ -1,0 +1,35 @@
+# -----------------------------------------------------------
+# Code by: Kelly Christensen
+# YAML script to customize the path to XML-ALTO files and the project's publication information.
+# -----------------------------------------------------------
+
+data:
+  # specify the relative path of your data files
+  path: "./content/data"
+
+responsibility:
+  text: "Transformation from ALTO4 to TEI by"
+  # create a dictionary for each contributor in your project, featuring
+  # their first name (forename), last name (surname), and ORCID (ptr)
+  # example: {"forename":"Kelly", 
+  #           "surname":"Christensen", 
+  #           "ptr":{"type":"orcid","target":"000000027236874X"}}
+  resp: [{"forename":"Kelly", 
+          "surname":"Christensen", 
+          "ptr":{"type":"orcid","target":"000000027236874X"}},
+
+        {"forename":"Simon",
+        "surname":"Gabay", 
+        "ptr":{"type":"orcid","target":"0000000190944475"}},
+
+        {"forename":"Ariane",
+        "surname":"Pinche",
+        "ptr":{"type":"orcid","target":"0000000278435050"}}
+        ]
+  # name the publisher of this digital edition (project name)
+  publisher: "Digital diplomacy"
+  # name which authority finances or supports the project
+  authority: "ONU"
+  # specify the edition's availability to the public/licencing
+  availability: {"status": "restricted", "n":"cc-by"}
+  licence: {"target":"https://creativecommons.org/licenses/by/4.0/"}
