@@ -9,6 +9,10 @@ _FoNDUE_ stands for _FOrmes Numérisées et Détection Unifiée des Écritures_.
 
 It uses [_eScriptorium_](https://gitlab.inria.fr/scripta/escriptorium), an open source project developed by the EPHE in collaboration with the INRIA. The open source HTR engine behind _eScriptorium_ is [Kraken](https://github.com/mittagessen/kraken).
 
+## Quick use
+
+You can use the complete pipeline with [this notebook](https://github.com/FoNDUE-HTR/Documentation/blob/master/notebook_pipeline.ipynb).
+
 ## About this GitHub organisation
 
 This repo aims at helping local users of FoNDUE. They can find informations about HTR solutions in Geneva.
