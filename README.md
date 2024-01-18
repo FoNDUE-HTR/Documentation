@@ -11,9 +11,9 @@ It uses [_eScriptorium_](https://gitlab.inria.fr/scripta/escriptorium), an open 
 
 ## Quick use
 
-You can use the complete pipeline with [this notebook](https://github.com/FoNDUE-HTR/Documentation/blob/master/notebook_pipeline.ipynb).
+If you want to use the pipeline with a notebook, follow the instructions here [here](https://github.com/FoNDUE-HTR/Documentation/blob/master/NOTEBOOK.md).
 
-## About this GitHub organisation
+## About this GitHub repo
 
 This repo aims at helping local users of FoNDUE. They can find informations about HTR solutions in Geneva.
 
@@ -24,6 +24,8 @@ This repo aims at helping local users of FoNDUE. They can find informations abou
 3. To distribute data and models, we recommend to follow the instructions given by [HTR-united](https://github.com/HTR-United/). A tutorial can be found here [here](https://github.com/FoNDUE-HTR/Documentation/blob/master/DATA.md).
 
 4. A (very simple) tutorial for Kraken can be found [here](https://github.com/FoNDUE-HTR/Documentation/blob/master/KRAKEN.md).
+
+5. A (simple) notebook can be found here [here](https://github.com/FoNDUE-HTR/Documentation/blob/master/NOTEBOOK.md).
 
 ## Email
 
