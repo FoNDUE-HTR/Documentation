@@ -11,7 +11,7 @@ It uses [_eScriptorium_](https://gitlab.inria.fr/scripta/escriptorium), an open 
 
 ## Quick use
 
-If you want to use the pipeline with a notebook, follow the instructions here [here](https://github.com/FoNDUE-HTR/Documentation/blob/master/NOTEBOOK.md).
+If you want to use the pipeline with a notebook, follow the instructions [here](https://github.com/FoNDUE-HTR/Documentation/blob/master/NOTEBOOK.md).
 
 ## About this GitHub repo
 
