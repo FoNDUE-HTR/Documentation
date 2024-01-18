@@ -8,7 +8,7 @@ When you are connected to OpenOnDemand:
 - Go to `Jupyter Lab`
 - select:
 	- Partition: `shared-gpu`
-	- The number of hours you will need the service (one book, c. 2h)
+	- The number of hours you will need for the service (one book, c. 2h)
 	- Cpu: `3` should be fine
 	- Memory: `6` should be fine
 	- Gpu: `1` is enough
