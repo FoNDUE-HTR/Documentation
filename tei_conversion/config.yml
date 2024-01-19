@@ -1,11 +1,12 @@
 # -----------------------------------------------------------
 # Code by: Kelly Christensen
+# Dirty hack: Simon Gabay (sorry Kelly)
 # YAML script to customize the path to XML-ALTO files and the project's publication information.
 # -----------------------------------------------------------
 
 data:
   # specify the relative path of your data files
-  path: "./content/data"
+  path: "content/data"
 
 responsibility:
   text: "Transformation from ALTO4 to TEI by"
@@ -27,9 +28,9 @@ responsibility:
         "ptr":{"type":"orcid","target":"0000000278435050"}}
         ]
   # name the publisher of this digital edition (project name)
-  publisher: "Digital diplomacy"
+  publisher: "University of Geneva"
   # name which authority finances or supports the project
-  authority: "ONU"
+  authority: "University of Geneva"
   # specify the edition's availability to the public/licencing
   availability: {"status": "restricted", "n":"cc-by"}
   licence: {"target":"https://creativecommons.org/licenses/by/4.0/"}

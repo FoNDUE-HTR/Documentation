@@ -15,14 +15,9 @@ class FullTree:
         self.iiif = metadata["iiif"]
 
     def author_data(self):
-        """Enter document's title and author into <titleStmt>.
-        """        
-        if self.sru["found"]:  # if the document's IIIF manifest had a valid catalogue ARK
-            self.authors(self.children["titleStmt"], True, True)
-            self.authors(self.children["bibl"], True, False)
-        else:  # if the document's IIIF manifest didn't have a valid catalogue ARK
-            self.authors(self.children["titleStmt"], False, True)
-            self.authors(self.children["bibl"], False, False)
+        self.authors(self.children["titleStmt"], False, True)
+        self.authors(self.children["bibl"], False, False)
+
 
     def authors(self, parent, is_catologue_match, is_first_id):
         """Create elements about authorship in either fileDesc/titleStmt or fileDesc/sourceDesc/bibl.
@@ -58,14 +53,14 @@ class FullTree:
                         ptr.attrib["target"] = self.sru["authors"][count]["isni"]
             else:
                 author_root = parent.find('./author')
-                if self.iiif["Creator"] is not None:
-                    a = self.iiif["Creator"]
-                    if is_first_id:
-                        author_root.attrib[xml_id] = f"{a[:2]}"
-                    else:
-                        author_root.attrib["ref"] = f"#{a[:2]}"
-                    name = etree.SubElement(author_root, "name")
-                    name.text = a
+                #if self.iiif["Creator"] is not None:
+                #    a = self.iiif["Creator"]
+                #    if is_first_id:
+                #        author_root.attrib[xml_id] = f"{a[:2]}"
+                #    else:
+                #        author_root.attrib["ref"] = f"#{a[:2]}"
+                #    name = etree.SubElement(author_root, "name")
+                #    name.text = a
 
     def bib_data(self):
         """In the <bibl>, enter the document's catalogue pointer (ptr), author, title, publication place, publisher, date.

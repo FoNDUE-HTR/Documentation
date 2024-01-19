@@ -25,7 +25,7 @@ def teiheader(metadata, document, root, count_pages, config, version, filepaths,
     
     # step 2 -- enter available metadata into relevant element in <teiHeader>
     htree = FullTree(elements.children, metadata)  # full_teiheader.py
-    htree.author_data()
-    htree.bib_data()
+    #htree.author_data()
+    #htree.bib_data()
     segmonto_zones, segmonto_lines = htree.segmonto_taxonomy(filepaths)
     return root, segmonto_zones, segmonto_lines

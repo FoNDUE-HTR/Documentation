@@ -20,12 +20,8 @@ class DefaultTree:
         self.version = version
 
     def build(self):
-        if self.sru["found"]:
-            default_text = "Information not available."
-            num_authors = len(self.sru["authors"])
-        else:
-            default_text = "Digitised resource not found in BnF catalogue."
-            num_authors = 1  # method of extracting IIIF manifest data will only return 1 author
+        default_text = "To be completed"
+        num_authors = 1  # method of extracting IIIF manifest data will only return 1 author
 
         teiHeader = etree.SubElement(self.root, "teiHeader")
         # Three children of the root <teiHeader>

@@ -31,7 +31,8 @@ class TEI:
     
     def build_header(self, config, version):
         # confirm that the metadata is being récupéré
-        self.metadata = Metadata(self.d).prepare()
+        #Deleted for notebook version
+        #self.metadata = Metadata(self.d).prepare()
         self.root, self.segmonto_zones, self.segmonto_lines = teiheader(self.metadata, self.d, self.root, len(self.fp), config, version, self.fp, self.segmonto_zones, self.segmonto_lines)
     
     def build_sourcedoc(self):
