@@ -1,0 +1,176 @@
+{
+    "version": "0.8",
+    "name": "moderne",
+    "author": "Simon Gabay <simon.gabay@unige.ch>",
+    "characters": [
+        {
+            "row": 0,
+            "column": 0,
+            "keyboard_code": null,
+            "character": "⟦"
+        },
+        {
+            "row": 0,
+            "column": 1,
+            "keyboard_code": null,
+            "character": "⟧"
+        },
+        {
+            "row": 0,
+            "column": 2,
+            "keyboard_code": null,
+            "character": "«"
+        },
+        {
+            "row": 0,
+            "column": 3,
+            "keyboard_code": null,
+            "character": "»"
+        },
+        {
+            "row": 0,
+            "column": 4,
+            "keyboard_code": null,
+            "character": "“"
+        },
+        {
+            "row": 0,
+            "column": 5,
+            "keyboard_code": null,
+            "character": "“"
+        },
+        {
+            "row": 0,
+            "column": 6,
+            "keyboard_code": null,
+            "character": "‟"
+        },
+        {
+            "row": 0,
+            "column": 7,
+            "keyboard_code": null,
+            "character": "„"
+        },
+        {
+            "row": 1,
+            "column": 0,
+            "keyboard_code": null,
+            "character": "ã"
+        },
+        {
+            "row": 1,
+            "column": 1,
+            "keyboard_code": null,
+            "character": "ẽ"
+        },
+        {
+            "row": 1,
+            "column": 2,
+            "keyboard_code": null,
+            "character": "õ"
+        },
+        {
+            "row": 1,
+            "column": 3,
+            "keyboard_code": null,
+            "character": "ũ"
+        },
+        {
+            "row": 1,
+            "column": 4,
+            "keyboard_code": null,
+            "character": "m̃"
+        },
+        {
+            "row": 1,
+            "column": 5,
+            "keyboard_code": null,
+            "character": "ñ"
+        },
+        {
+            "row": 1,
+            "column": 6,
+            "keyboard_code": null,
+            "character": "q̃"
+        },
+        {
+            "row": 1,
+            "column": 7,
+            "keyboard_code": null,
+            "character": "r̃"
+        },
+        {
+            "row": 2,
+            "column": 0,
+            "keyboard_code": null,
+            "character": "ꝑ"
+        },
+        {
+            "row": 2,
+            "column": 1,
+            "keyboard_code": null,
+            "character": "ꝓ"
+        },
+        {
+            "row": 2,
+            "column": 2,
+            "keyboard_code": null,
+            "character": "ɖ"
+        },
+        {
+            "row": 2,
+            "column": 3,
+            "keyboard_code": null,
+            "character": "ꝯ"
+        },
+        {
+            "row": 2,
+            "column": 4,
+            "keyboard_code": null,
+            "character": "À"
+        },
+        {
+            "row": 2,
+            "column": 5,
+            "keyboard_code": null,
+            "character": "É"
+        },
+        {
+            "row": 2,
+            "column": 6,
+            "keyboard_code": null,
+            "character": "È"
+        },
+        {
+            "row": 2,
+            "column": 7,
+            "keyboard_code": null,
+            "character": "Ç"
+        },
+        {
+            "row": 3,
+            "column": 0,
+            "keyboard_code": null,
+            "character": "–"
+        },
+        {
+            "row": 3,
+            "column": 1,
+            "keyboard_code": null,
+            "character": "¬"
+        },
+        {
+            "row": 3,
+            "column": 2,
+            "keyboard_code": null,
+            "character": "⎯"
+        },
+        {
+            "row": 3,
+            "column": 3,
+            "keyboard_code": null,
+            "character": "ſ"
+        }
+
+    ]
+}
