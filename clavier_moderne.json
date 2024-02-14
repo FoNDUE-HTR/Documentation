@@ -171,6 +171,12 @@
             "keyboard_code": null,
             "character": "ſ"
         }
+        {
+            "row": 3,
+            "column": 4,
+            "keyboard_code": null,
+            "character": "⎀"
+        }
 
     ]
 }
