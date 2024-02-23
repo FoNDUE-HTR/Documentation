@@ -4,17 +4,17 @@ FoNDUE is an HTR infrastructure for the university of Geneva. More information h
 
 ## 1. Using the infrastructure:
 
-You can access our infrastructure at the following adress: https://test2.fondue.unige.ch/. You can find a tutorial in English [here](https://lectaurep.hypotheses.org/documentation/escriptorium-tutorial-en) and in French [here](https://lectaurep.hypotheses.org/documentation/prendre-en-main-escriptorium).
-
-It uses [_eScriptorium_](https://gitlab.inria.fr/scripta/escriptorium), an open source initiative of the EPHE and the INRIA. The HTR engine is [_Kraken_](https://github.com/mittagessen/kraken), which is also _open source_.
-
 Our instance uses the [Baobab and the Yggdrasil clusters](https://www.unige.ch/eresearch/en/services/hpc/) of the university of Geneva. To get an access, [follow the instructions](https://www.unige.ch/eresearch/en/services/hpc/guidelines/).
+
+⚠️ These clusters are shared by all the researchers of the UniGE. You might have to wait in the queue!
+
 
 ## 2. Prepare your user account
 
+### 2.1 Access the cluster
+
 Our cluster uses [slurm](https://en.wikipedia.org/wiki/Slurm_Workload_Manager) for managing the jobs. You fill find documentation for the Geneva cluster [here](https://doc.eresearch.unige.ch/hpc/slurm#).
 
-⚠️ The DH unit does not own a node yet, so completion of tasks might be slow.
 
 To access the cluster:
 
@@ -30,12 +30,12 @@ ssh PSEUDO@login1.yggdrasil.hpc.unige.ch
 
 Baobab and Yggdrasil are the two supercomputers of the university of Geneva. About their differences, and why use one rather than another, you will have all the details [here](https://doc.eresearch.unige.ch/hpc/hpc_clusters).
 
-⚠️ We recommend using _Yggdrasil_.
+⚠️ We recommend using _Baobab_. It has more GPUs than Yggdrasil.
 
 At the UniGE, `PSEUDO` should be your surname, sometimes followed by the first letter of your given name (_John Doe_ -> `doe` or `doej`), so:
 
 ```bash
-ssh doej@login1.yggdrasil.hpc.unige.ch
+ssh doej@baobab2.hpc.unige.ch
 ```
 
 To exit the cluster:
@@ -79,10 +79,12 @@ To save `ctrl+x`, `ctrl+y` and `enter`.
 Your environment is empty: for instance, there is not python. You need to load a specific python module to use python. If you already know which one you need, you can load it like this:
 
 ```bash
-module load Python/3.8.6
+module load GCCcore/11.2.0 Python/3.9.6
 ```
 
-You can control that the modules is loaded with:
+⚠️ You need [GCC](https://fr.wikipedia.org/wiki/GNU_Compiler_Collection) to use [CPython](https://en.wikipedia.org/wiki/CPython).
+
+You can control that the module is loaded with:
 
 ```bash
 NAME --version
@@ -112,10 +114,12 @@ Or check all the available versions with:
 module spider NAME
 ```
 
+⚠️ The name is case sensitive: `Python` and not `python`, `CUDA` and not `cuda`, etc.
+
 For instance:
 
 ```bash
-module spider python
+module spider Python
 ```
 
 Or look at the description of specific version:
@@ -138,14 +142,23 @@ module purge
 
 ### 2.2 Installing _Kraken_
 
-We can now install _Kraken_. To begin with, let's load all the required modules:
+We can now install _Kraken_. To begin with, let's purge the environment (in case there is something else that would create a conflict):
 
 ```bash
-module load fosscuda/2020b Python/3.8.6
+module purge
 ```
 
-More information about `fosscuda` is available [here](https://doc.eresearch.unige.ch/hpc/applications_and_libraries#fosscuda_toolchain).
+Now we can load all the required modules:
 
+```bash
+module load CUDA/11.8.0 GCCcore/11.2.0 Python/3.9.6
+```
+
+⚠️ We need `CUDA` to use the GPUs, on top of Python.
+
+⚠️ Former command `module load fosscuda/2020b Python/3.8.6` is now deprecated.
+
+⚠️ This list of modules might need to be adapted according to your cluster's specifications.
 
 It is highly recommended to work with a virtual environment (henceforth `VENV`), which can be created with:
 
@@ -171,20 +184,28 @@ For instance, if it is in the root directory:
 source ~/kraken-env/bin/activate
 ```
 
+⚠️ Load the module first, activate the VENV after.
+
+
 `(kraken-env)` (or the name of your VENV) should appear at the beginning of the line.
 
-Now you can install a _Kraken_ via pip. First upload pip:
-
 ```bash
-pip install pip-tools==6.6.2 pip==22.1.2
+(kraken-env) (baobab)-
 ```
 
-Now you can install _Kraken_. We highly recommend to use a `requirements` list that we have prepared:
+Now you can install a _Kraken_ via pip. In some cases you might have to upgrade pip before:
 
 ```bash
-wget https://raw.githubusercontent.com/FoNDUE-HTR/Documentation/master/requirements.txt
-pip install -r requirements.txt
+pip install --upgrade pip
 ```
+
+Now you can install _Kraken_. 
+
+```bash
+pip install kraken albumentations
+```
+
+⚠️ The `albumentations` package is not compulsory, but is required if you want to do data augmentation during training.
 
 You can control that it is installed with:
 
@@ -192,10 +213,55 @@ You can control that it is installed with:
 kraken --version
 ```
 
+Now we need to install torch compatible with our `CUDA` package:
+
+```bash
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+```
+
+You can control if torch is properly installed:
+
+`torch==`:
+```bash
+python -m pip freeze
+```
+
+You should fine in the list something like `torch==2.0.1`. Now we need to control if `CUDA` is properly installed. Write:
+
+```bash
+python
+```
+
+Then:
+```bash
+import torch
+```
+
+And finally:
+```bash
+print (torch.__version__)
+```
+
+The answer should be: `2.0.1+cu117`.
+
 If you need to deactivate the virtual environment, you need to execute:
 
 ```bash
 deactivate
+```
+
+### 2.3 Additionnal commands
+
+Memory is not free and unlimited. Regulary check how much space you are using:
+
+```bash
+du -hs * | sort -h
+```
+
+You might also need to see how many nodes are available:
+
+```
+sinfo
 ```
 
 ## 3. How to train a model?
@@ -231,7 +297,7 @@ salloc --partition=debug-gpu --time=00:10:00 --gpus=1
 A description of all the partitions is available [online](https://doc.eresearch.unige.ch/hpc/slurm), with the maximum time for each of them.
 - `debug-gpu` is available for 15mn max
 - `shared-gpu` is available for 12h max
-- `public-gpu` is available for 24h max
+- `public-gpu` is available for 96h max
 
 To have a `shared-gpu` during one hour you should ask for:
 
@@ -239,10 +305,10 @@ To have a `shared-gpu` during one hour you should ask for:
 salloc --partition=shared-gpu --time=01:00:00 --gpus=1
 ```
 
-For a very big dataset:
+For a very big dataset you might need several days:
 
 ```bash
-salloc --partition=public-gpu --time=40:00:00 --gpus=1
+salloc --partition=public-gpu --time=2-00:00:00 --gpus=1
 ```
 
 -> **Yes: you need to know in advance for how long you will need the GPU!**
@@ -258,25 +324,29 @@ Several paramters can be added:
 - `--mem` sets the minimum amount of CPU RAM (not the GPU!)
 - `--gres` allows you to select a GPU with a minimum quantity of RAM
 
-⚠️ Some tools need to process data, and several processes dedicated to loading data are created. You need to increase the value of `--ntasks` to have them run properly.
+A reasonable `salloc` for training would be:
 
-⚠️ _Kraken_ (like many computer vision tools) requires more memory than the one allocated with `--ntasks=1`. Rather than increasing the amount of tasks (e.g. `--tasks=4`), we recommend to increase the RAM on the CPU with `--mem` (e.g. `--mem=12GB`). When doing that, make sure the memory allocated to the GPU (e.g. `--gres=gpu:1,VramPerGpu:12GB` for 12 GB) is at least equal to the value of `--mem`.
+```bash
+salloc --partition=shared-gpu --time=05:00:00 --gpus=1 --mem=12GB --cpus-per-task=4
+```
+
+⚠️ _Kraken_ (like many computer vision tools) requires more memory than the one allocated with `--ntasks=1`. Rather than increasing the amount of tasks (e.g. `--tasks=4`), we recommend to increase the RAM on the CPU with `--mem` (e.g. `--mem=12GB`). 
+
+⚠️ If your process is `killed`, it usually means that you do not have enough memory. Either you diminish what you use (e.g. smaller batch size), either you cancel your job and ask for a new one with more memory.
 
 ⚠️ Processing important amount of data requires much more memory, especially if you increase the batch size. If you get a `RuntimeError: DataLoader worker (pid XXXXXX) is killed by signal: Killed.`, it is because your GPU does not have enough RAM: consider increasing it with `salloc` (e.g. `--gres=gpu:1,VramPerGpu:24GB` for 24 GB).
 
-```bash
-salloc --partition=shared-gpu --time=01:00:00 --gpus=1 --mem=12GB --cpus-per-task=8 --gres=gpu:1,VramPerGpu:12GB
-```
+⚠️ The more you ask for, the more you wait!
 
 ### 3.2 With commmand lines
 
 ⚠️ You have to load the requires modules each time you get allocated a GPU. For _Kraken_ users:
 
 ```bash
-module load fosscuda/2020b Python/3.8.6
+module load CUDA/11.8.0 GCCcore/11.2.0 Python/3.9.6
 ```
 
-and then activate your virtual environement:
+and then activate your virtual environement (in that order):
 
 ```bash
 source ~/kraken-env/bin/activate
@@ -288,15 +358,15 @@ You can now train a model for HTR:
 ketos train -f alto -d cuda:0 PATH/TO/*xml
 ```
 
+- `-f` says which kind of data you have (possible options are `alto` or `page`).
+- `-d cuda` is required to use the GPU
+- `PATH/TO/*xml` is the path to the folder with all the xml files and the images.
+
 For instance:
 
 ```bash
 ketos train -f alto -d cuda:0 data/*xml
 ```
-
-- `-f` says which kind of data you have (possible options are `alto` or `page`).
-- `-d cuda` is required to use the GPU
-- `PATH/TO/*xml` is the path to the folder with all the xml files and the images.
 
 A (very simple) tutorial for Kraken can be found [here](https://github.com/FoNDUE-HTR/Documentation/blob/master/KRAKEN.md).
 
@@ -316,17 +386,17 @@ It is possible to add the arguments presented just above.
 
 ### 3.3 Using a submission script
 
-Rather than writing everything, you can use a submission script, gathering all the informations in a bash file:
+Rather than writing everything and wait (deserately) in front of your computer you get allocated the resources you asked for, you can use a submission script, gathering all the informations in a bash file:
 
 ```bash
 #!/bin/env bash
-#SBATCH --partition=shared-gpu
-#SBATCH --time=01:00:00
+#SBATCH --partition=public-gpu
+#SBATCH --time=2-00:00:00
 #SBATCH --gpus=1
 #SBATCH --output=kraken-%j.out
-#SBATCH --mem=10000
-#SBATCH --ntasks=2
-#SBATCH --gres=gpu:1,VramPerGpu:10000
+#SBATCH --mem=24GB
+#SBATCH --ntasks=12
+#SBATCH --gres=gpu:1,VramPerGpu:24GB
 
 module load fosscuda/2020b Python/3.8.6
 source ~/kraken-env/bin/activate
@@ -364,3 +434,49 @@ squeue -j 0000000
 ```
 
 `-j` being followed of the job ID.
+
+You can check when the job starts. `PD` (pending) means it has not started yet:
+
+```bash
+(baobab)-[doej@login2 ~]$ squeue -j 7637204
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           7637204 shared-gp submissi   doej PD       0:00      1 (Priority)
+```
+
+`R` means the job is running:
+```bash
+(baobab)-[doej@login2 ~]$ squeue -j 7637204
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           7637204 shared-gp submissi   doej  R       3:47      1 gpu014
+```
+
+You have access to the log:
+```bash
+cat kraken-0000000.out 
+```
+
+You can open a new tab to see what is happening. First get the name of the machine (in the previous example `gpu014`) and connect yourself to this machine:
+
+```bash
+ssh gpu014
+```
+
+Two commands can be used to  to monitor the (running) job in real time:
+
+```bash
+htop
+```
+
+Another command monitors only the GPU:
+
+```bash
+watch -n 1 nvidia-smi
+```
+
+At the end of the job, you can have a look at what happened (memory use, GPU use, total computation time…)
+
+```bash
+seff
+```
+
+It will help you tailor your `salloc` to your needs!
