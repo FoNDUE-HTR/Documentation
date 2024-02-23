@@ -74,6 +74,12 @@ export PATH="/home/users/g/PSEUDO/.local/bin:$PATH"
 
 To save `ctrl+x`, `ctrl+y` and `enter`.
 
+You can copy files from one cluster to another with:
+
+```bash
+scp doej@login1.yggdrasil.hpc.unige.ch:/home/users/g/gabays/file.txt .
+```
+
 ### 2.1 Loading modules
 
 Your environment is empty: for instance, there is not python. You need to load a specific python module to use python. If you already know which one you need, you can load it like this:
