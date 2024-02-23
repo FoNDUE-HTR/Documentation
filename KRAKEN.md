@@ -303,6 +303,8 @@ The commands are really similar to those of `ketos train`.
 pip install YALTAi
 ```
 
+⚠️ If you install YALTAi, you install also Kraken.
+
 ### 6.1 Convert the data
 
 Convert (and split optionally) your data:
@@ -312,7 +314,7 @@ Convert (and split optionally) your data:
 yaltai alto-to-yolo PATH/TO/ALTOorPAGE/*.xml my-dataset --shuffle .1
 ```
 
-If the data uses the SegmOnto format you can use the `--segmonto` flag.
+If the data uses the [SegmOnto](https://segmonto.github.io/) controlled vocabulary you can use the `--segmonto` flag.
 
 ```bash
 # Keeps .1 data in the validation set and convert all alto into YOLOv5 format
@@ -327,21 +329,10 @@ This step will create a `my-dataset/config.yml` file in the directory where the 
 
 ### 6.2 Train the model
 
-You need to download YOLOv5
+You can now train a model using the _Yolo_ algorithm.
 
 ```bash
-# Download YOLOv5
-git clone https://github.com/ultralytics/yolov5  # clone
-cd yolov5
-git checkout v6.2
-pip install -r requirements.txt  # install
-```
-
-You can now train a model:
-
-```bash
-# Train your YOLOv5 data (YOLOv5 is installed with YALTAi)
-python train.py --data "../my-dataset/config.yml" --batch-size 4 --img 640 --weights yolov5x.pt --epochs 50
+yolo task=detect mode=train model=yolov8n.pt data=my-dataset/config.yml epochs=100 plots=True device=0 batch=8 imgsz=960
 ```
 
 Possible modifications are:
@@ -354,17 +345,17 @@ For instance:
 python train.py --data "../my-dataset/config.yml" --batch-size 4 --img 1280 --weights yolov5x6.pt --epochs 50 --workers 6
 ```
 
-⚠️ enlarging the size of the image (640->1280) requires much more memory, and you may have to reduce the size of the batch to 2.
+⚠️ Enlarging the size of the image (640->1280) requires much more memory, and you may have to reduce the size of the batch to 2.
 
 ### 6.3 Prediction
 
 You need first to check in the `yolov5` directory the name of the directory in which the weights are:
 
 ```bash
-yolov5/runs/train
+yaltai kraken --device cuda:0 -I "*.jpg" --suffix ".xml" segment --yolo runs/train/exp5/weights/best.pt
 ```
 
-There might be different directoy named `exp1`, `exp2`, `exp3`… Depending on how many models have been trained. Adapt accordingly the path below:
+⚠️ There might be different directoy named `exp1`, `exp2`, `exp3`… Depending on how many models have been trained. Adapt accordingly the path below:
 
 ```bash
 # Retrieve the best.pt after the training
