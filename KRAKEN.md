@@ -251,13 +251,13 @@ ketos train -t train.arrow -e eval.arrow -f binary -u NFD -B 8 --precision 16 --
 It is possible to [fine tune](https://en.wikipedia.org/wiki/Fine-tuning) an existing model with `-i` + the model to fine tune:
 
 ```bash
-ketos train -i PATH/TO/model.mlmodel PATH/TO/*.xml
+ketos train -i PATH/TO/model.mlmodel -t PATH/TO/*.xml
 ```
 
 It is recommended, when fine tuning a model, to use the `--resize union` command in case some characters would not be present in the original training. Do not forget to specify the format
 
 ```bash
-ketos train -f alto -i PATH/TO/model.mlmodel --resize union PATH/TO/*.xml
+ketos train -f alto -i PATH/TO/model.mlmodel --resize union -t PATH/TO/*.xml
 ```
 
 ### 3.5 Reading results
