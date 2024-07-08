@@ -19,7 +19,7 @@ Our cluster uses [slurm](https://en.wikipedia.org/wiki/Slurm_Workload_Manager) f
 To access the cluster:
 
 ```bash
-ssh PSEUDO@baobab2.hpc.unige.ch
+ssh PSEUDO@login1.baobab.hpc.unige.ch
 ```
 
 or
@@ -28,14 +28,20 @@ or
 ssh PSEUDO@login1.yggdrasil.hpc.unige.ch
 ```
 
-Baobab and Yggdrasil are the two supercomputers of the university of Geneva. About their differences, and why use one rather than another, you will have all the details [here](https://doc.eresearch.unige.ch/hpc/hpc_clusters).
+or 
+
+```bash
+ssh PSEUDO@login1.bamboo.hpc.unige.ch
+```
+
+Baobab, Yggdrasil and Bamboo are the three supercomputers of the university of Geneva. About their differences, and why use one rather than another, you will have all the details [here](https://doc.eresearch.unige.ch/hpc/hpc_clusters).
 
 ⚠️ We recommend using _Baobab_. It has more GPUs than Yggdrasil.
 
 At the UniGE, `PSEUDO` should be your surname, sometimes followed by the first letter of your given name (_John Doe_ -> `doe` or `doej`), so:
 
 ```bash
-ssh doej@baobab2.hpc.unige.ch
+ssh doej@login1.baobab.hpc.unige.ch
 ```
 
 To exit the cluster:
