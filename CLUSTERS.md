@@ -4,7 +4,7 @@ FoNDUE is an HTR infrastructure for the university of Geneva. More information h
 
 ## 1. Using the infrastructure:
 
-Our instance uses the [Baobab and the Yggdrasil clusters](https://www.unige.ch/eresearch/en/services/hpc/) of the university of Geneva. To get an access, [follow the instructions](https://www.unige.ch/eresearch/en/services/hpc/guidelines/).
+Our instance uses the [Baobab, Yggdrasil and Bamboo clusters](https://www.unige.ch/eresearch/en/services/hpc/) of the university of Geneva. To get an access, [follow the instructions](https://www.unige.ch/eresearch/en/services/hpc/guidelines/).
 
 ⚠️ These clusters are shared by all the researchers of the UniGE. You might have to wait in the queue!
 
