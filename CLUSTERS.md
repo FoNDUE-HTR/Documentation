@@ -85,7 +85,7 @@ scp doej@login1.yggdrasil.hpc.unige.ch:/home/users/g/gabays/file.txt .
 Your environment is empty: for instance, there is not python. You need to load a specific python module to use python. If you already know which one you need, you can load it like this:
 
 ```bash
-module load GCCcore/11.2.0 Python/3.9.6
+module load cuDNN/8.9.2.26-CUDA-12.1.1 GCCcore/13.2.0 Python/3.11.5
 ```
 
 ⚠️ You need [GCC](https://fr.wikipedia.org/wiki/GNU_Compiler_Collection) to use [CPython](https://en.wikipedia.org/wiki/CPython).
@@ -157,12 +157,14 @@ module purge
 Now we can load all the required modules:
 
 ```bash
-module load CUDA/11.8.0 GCCcore/11.2.0 Python/3.9.6
+module load cuDNN/8.9.2.26-CUDA-12.1.1 GCCcore/13.2.0 Python/3.11.5
 ```
 
 ⚠️ We need `CUDA` to use the GPUs, on top of Python.
 
 ⚠️ Former command `module load fosscuda/2020b Python/3.8.6` is now deprecated.
+
+⚠️ Former command `module load CUDA/11.8.0 GCCcore/11.2.0 Python/3.9.6` is now deprecated.
 
 ⚠️ This list of modules might need to be adapted according to your cluster's specifications.
 
@@ -219,7 +221,7 @@ You can control that it is installed with:
 kraken --version
 ```
 
-Now we need to install torch compatible with our `CUDA` package:
+⚠️ Formerly we needed to install torch compatible with our `CUDA` package. **This is not needed anymore**:
 
 ```bash
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
@@ -311,7 +313,7 @@ To have a `shared-gpu` during one hour you should ask for:
 salloc --partition=shared-gpu --time=01:00:00 --gpus=1
 ```
 
-For a very big dataset you might need several days:
+For a very big dataset you might need several days (here: 2). `public-gpu` partition is not available on Baobab.
 
 ```bash
 salloc --partition=public-gpu --time=2-00:00:00 --gpus=1
@@ -349,7 +351,7 @@ salloc --partition=shared-gpu --time=05:00:00 --gpus=1 --mem=12GB --cpus-per-tas
 ⚠️ You have to load the requires modules each time you get allocated a GPU. For _Kraken_ users:
 
 ```bash
-module load CUDA/11.8.0 GCCcore/11.2.0 Python/3.9.6
+module load cuDNN/8.9.2.26-CUDA-12.1.1 GCCcore/13.2.0 Python/3.11.5
 ```
 
 and then activate your virtual environement (in that order):
@@ -404,7 +406,7 @@ Rather than writing everything and wait (deserately) in front of your computer y
 #SBATCH --ntasks=12
 #SBATCH --gres=gpu:1,VramPerGpu:24GB
 
-module load fosscuda/2020b Python/3.8.6
+module load cuDNN/8.9.2.26-CUDA-12.1.1 GCCcore/13.2.0 Python/3.11.5
 source ~/kraken-env/bin/activate
 
 OUTPUT_NAME="output_name"
